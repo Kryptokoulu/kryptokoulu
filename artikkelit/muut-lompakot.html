@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phantom, OKX ja Enkrypt | Kryptokoulu</title>
+<meta name="description" content="Kolme muuta lompakkoa: Solana-natiivi Phantom, monipuolinen OKX ja yksityisyyden Enkrypt.">
+<meta name="keywords" content="Phantom lompakko, OKX lompakko, Enkrypt, Solana lompakko, kryptolompakot">
+<meta name="author" content="Kryptokoulu">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://kryptokoulu.github.io/kryptokoulu/artikkelit/muut-lompakot.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Phantom, OKX ja Enkrypt | Kryptokoulu">
+<meta property="og:description" content="Kolme muuta lompakkoa: Solana-natiivi Phantom, monipuolinen OKX ja yksityisyyden Enkrypt.">
+<meta property="og:url" content="https://kryptokoulu.github.io/kryptokoulu/artikkelit/muut-lompakot.html">
+<meta property="og:site_name" content="Kryptokoulu">
+<meta property="og:locale" content="fi_FI">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@Kryptokoulu">
+<meta name="twitter:title" content="Phantom, OKX ja Enkrypt | Kryptokoulu">
+<meta name="twitter:description" content="Kolme muuta lompakkoa: Solana-natiivi Phantom, monipuolinen OKX ja yksityisyyden Enkrypt.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/tyyli.css">
+</head>
+<body>
+
+<nav class="navi">
+  <div class="navi__sisalto">
+    <a href="../index.html" class="logo">
+      <span class="logo__merkki">K</span> Kryptokoulu
+    </a>
+    <div class="navi__linkit" id="navilinkit">
+      <a href="../index.html#aloittelija">Aloittelija</a>
+      <a href="../index.html#edistynyt">Edistynyt</a>
+      <a href="../index.html#tietoa">Tietoa</a>
+      <a href="https://www.tradingview.com/?aff_id=168670" target="_blank" rel="noopener">TradingView</a>
+    </div>
+    <button class="navi-nappi" onclick="document.getElementById('navilinkit').classList.toggle('auki')" aria-label="Valikko">☰</button>
+  </div>
+</nav>
+
+<main class="artikkeli">
+  <article class="artikkeli__wrap">
+    <nav class="murupolku">
+      <a href="../index.html">Etusivu</a> <span>/</span>
+      <a href="../index.html#aloittelija">Aloittelija</a> <span>/</span>
+      <span>Phantom, OKX ja Enkrypt</span>
+    </nav>
+    <div class="artikkeli__meta">
+      <span class="merkki">Aloittelija</span>
+      <span class="lukuaika">⏱ 11 min lukuaika</span>
+    </div>
+    <h1>Phantom, OKX ja Enkrypt</h1>
+    <p class="artikkeli__ingressi">MetaMask on hyvä ensimmäinen lompakko, mutta se ei sovi kaikkeen. Tässä oppaassa tutustutaan kolmeen muuhun lompakkoon eri tarpeisiin: <strong>Phantom</strong> on Solana-verkon paras lompakko, <strong>OKX</strong> tukee laajimmin eri ketjuja yhdessä sovelluksessa, ja <strong>Enkrypt</strong> on avoimen lähdekoodin lompakko yksityisyyttä arvostavalle. Sama seed-turvallisuus koskee kaikkia – periaatteet ovat samat, vaikka sovellus vaihtuu.</p>
+    <nav class="sisallys">
+      <h2>Sisällys</h2>
+      <ol>
+          <li><a href="#miksi">Miksi useampi lompakko</a></li>
+          <li><a href="#phantom">Phantom – Solanan koti</a></li>
+          <li><a href="#okx">OKX – monen ketjun yleislompakko</a></li>
+          <li><a href="#enkrypt">Enkrypt – yksityisyyden valinta</a></li>
+          <li><a href="#vertailu">Nopea vertailu</a></li>
+          <li><a href="#yhteenveto">Yhteenveto</a></li>
+      </ol>
+    </nav>
+    <div class="sisalto">
+<h2 id="miksi">Miksi useampi lompakko</h2>
+
+<p>Eri lohkoketjut toimivat eri tavoin, eikä yksi lompakko tue kaikkea. MetaMask hallitsee EVM-verkkoja (Ethereum ja sen sukulaiset), mutta esimerkiksi <strong>Solana</strong> on kokonaan erilainen ketju, joka tarvitsee oman lompakkonsa. Lisäksi eri lompakoilla on eri vahvuuksia: toinen on paras yhdelle ketjulle, toinen tukee kaikkea, kolmas painottaa yksityisyyttä.</p>
+
+<p>Hyvä uutinen on, että <strong>kaikki nämä lompakot toimivat samalla periaatteella</strong> kuin MetaMask: on seed-lause, jonka kirjoitat paperille, julkinen osoite jonka jaat, ja yksityinen avain jota et koskaan paljasta. Kun opit yhden lompakon logiikan, muut ovat helppoja. Turvasäännöt ovat täsmälleen samat.</p>
+
+<div class="laatikko laatikko--varo">
+  <div class="laatikko__otsikko">⚠️ Sama sääntö kaikille</div>
+  <p>Jokaisella lompakolla on oma seed-lauseensa. Kirjoita jokainen seed erikseen paperille, älä koskaan digitaalisesti, ja lataa jokainen lompakko vain virallisesta lähteestä. Huijaus-versioita on kaikista suosituista lompakoista.</p>
+</div>
+
+<h2 id="phantom">Phantom – Solanan koti</h2>
+
+<p><strong>Phantom</strong> on suosituin Solana-lompakko, ja jos aiot käyttää Solana-verkkoa lainkaan, tämä on lähes välttämätön. Solana on nopea ja edullinen ketju, jossa on paljon sovelluksia, NFT:itä ja tokeneita. Phantom on selkeä ja aloittelijaystävällinen, samaan tapaan kuin MetaMask on EVM-maailmassa.</p>
+
+<p>Phantom on laajentunut tukemaan myös Ethereumia ja muutamaa muuta ketjua, mutta sen ydin ja vahvuus on Solanassa. Asennus on samanlainen kuin MetaMaskissa: lataa virallisesta lähteestä (phantom.app tai virallinen sovelluskauppa), luo lompakko, ota seed talteen paperille.</p>
+
+<p>Phantomissa on hyödyllisiä ominaisuuksia kuten sisäänrakennettu varoitus epäilyttävistä sivustoista ja siirroista. Muista silti, että mikään automaattinen suojaus ei korvaa omaa huolellisuutta – samat säännöt tuntemattomista tokeneista ja osoitteiden tarkistuksesta pätevät.</p>
+
+<div class="laatikko laatikko--vinkki">
+  <div class="laatikko__otsikko">💡 Phantom + Solanan erityispiirteet</div>
+  <p>Muista Solanan token-tilit ja rent (käsiteltiin turvallisuusoppaassa). Phantomia käyttäessäsi tutustu myös Sol Incineratoriin tyhjien tilien siivoamiseen. Solanassa siirrot ovat halpoja, joten harjoittelu on edullista.</p>
+</div>
+
+<h2 id="okx">OKX – monen ketjun yleislompakko</h2>
+
+<p><strong>OKX-lompakko</strong> (huom: eri asia kuin OKX-pörssi, vaikka saman yhtiön) on monipuolisin lompakko ketjujen kattavuudessa. Se tukee valtavaa määrää verkkoja – sekä EVM-ketjuja että Solanan, ja monia muita – yhdessä sovelluksessa. Jos toimit useilla eri ketjuilla etkä halua vaihdella lompakkojen välillä, OKX voi olla kätevä keskus.</p>
+
+<p>OKX-lompakossa on myös sisäänrakennettuja työkaluja kuten ketjujen väliset vaihdot ja sovellusselain. Tämä tekee siitä monille „yhden luukun” ratkaisun. Toisaalta laajuus tarkoittaa myös enemmän ominaisuuksia opeteltavaksi – aloittelijalle MetaMask tai Phantom voi olla selkeämpi alku.</p>
+
+<p>Tärkeää: OKX-lompakko on <strong>self-custody-lompakko</strong> eli sinulla on seed ja hallinta, toisin kuin OKX-pörssissä jossa palvelu hallitsee avaimia. Älä sekoita näitä – lataa nimenomaan <em>lompakko-sovellus tai -laajennus</em>, ja ota seed talteen kuten ennenkin.</p>
+
+<div class="laatikko laatikko--varo">
+  <div class="laatikko__otsikko">⚠️ Lompakko vs. pörssi</div>
+  <p>OKX-pörssi (jossa varat ovat palvelun hallinnassa) ja OKX-lompakko (jossa sinä hallitset seediä) ovat eri asioita. Tässä puhutaan lompakosta. Muista aina periaate: omat varat kuuluvat omaan lompakkoon, ei pörssiin.</p>
+</div>
+
+<h2 id="enkrypt">Enkrypt – yksityisyyden valinta</h2>
+
+<p><strong>Enkrypt</strong> on avoimen lähdekoodin (open source) lompakko, jonka on kehittänyt MyEtherWallet-tiimi. Yksityisyyttä ja avoimuutta arvostavalle tämä on kiinnostava vaihtoehto, koska:</p>
+
+<ul>
+  <li><strong>Avoin lähdekoodi:</strong> kuka tahansa voi tarkastella koodia ja varmistaa, että lompakko tekee vain sen mitä lupaa. Tämä on läpinäkyvyyden kannalta arvokasta.</li>
+  <li><strong>Ei pakotettua tiedonkeruuta:</strong> Enkrypt painottaa sitä, ettei se kerää tarpeetonta käyttäjädataa. Voit myös käyttää omia RPC-yhteyksiäsi.</li>
+  <li><strong>Monen ketjun tuki:</strong> Enkrypt tukee useita EVM-verkkoja ja eräitä muita ketjuja, joten se on myös käytännöllinen.</li>
+</ul>
+
+<p>Enkrypt toimii selainlaajennuksena ja on suunniteltu yhteensopivaksi samojen sovellusten kanssa kuin MetaMask. Jos yksityisyys ja avoin lähdekoodi ovat sinulle tärkeitä arvoja, Enkrypt kannattaa kokeilla. Asennus ja seedin talteenotto toimivat kuten muissakin lompakoissa.</p>
+
+<div class="laatikko laatikko--vinkki">
+  <div class="laatikko__otsikko">💡 Yksityisyyden lisävinkit</div>
+  <p>Yksityisyyden parantamiseksi voit käyttää eri lompakko-osoitteita eri tarkoituksiin (esim. yksi julkiseen käyttöön, toinen säästöön). Muista että lohkoketju on julkinen – kaikki osoitteen tapahtumat näkyvät kenelle tahansa. Osoitteiden erottaminen auttaa pitämään toimintasi hajallaan.</p>
+</div>
+
+<h2 id="vertailu">Nopea vertailu</h2>
+
+<p>Kun mietit mitä lompakkoa käyttää mihinkin, tässä tiivistys:</p>
+
+<ul>
+  <li><strong>MetaMask</strong> – EVM-verkot, laajin sovellustuki. Paras aloitus ja päivittäiseen EVM-käyttöön.</li>
+  <li><strong>Phantom</strong> – Solana ensisijaisesti. Välttämätön jos käytät Solanaa.</li>
+  <li><strong>OKX-lompakko</strong> – laajin ketjukattavuus yhdessä sovelluksessa. Hyvä monella ketjulla toimivalle.</li>
+  <li><strong>Enkrypt</strong> – avoin lähdekoodi ja yksityisyys. Arvovalinta läpinäkyvyyttä arvostavalle.</li>
+</ul>
+
+<p>Monet käyttävät useampaa: MetaMaskia EVM-ketjuille ja Phantomia Solanalle. Tämä on täysin normaalia – valitse ketjun mukaan.</p>
+
+<h2 id="yhteenveto">Yhteenveto</h2>
+
+<p>Eri lompakot palvelevat eri tarpeita, mutta turvallisuusperiaatteet ovat kaikissa samat:</p>
+
+<ul>
+  <li>✅ Valitse lompakko <strong>ketjun ja tarpeen mukaan</strong>: Phantom Solanalle, MetaMask EVM:lle, OKX laajaan käyttöön, Enkrypt yksityisyyteen.</li>
+  <li>✅ Jokaisella on <strong>oma seed</strong> – kirjoita jokainen paperille erikseen.</li>
+  <li>✅ Lataa <strong>vain virallisesta lähteestä</strong>, jokaisesta on huijausversioita.</li>
+  <li>✅ Samat säännöt pätevät: ei tuntemattomia tokeneita, tarkista osoitteet ja verkot.</li>
+</ul>
+
+<p>Seuraavaksi opetellaan siirtämään tokeneita ketjujen välillä turvallisesti deBridgen avulla – ja ymmärtämään miksi ETH on halvempaa käyttää Arbitrumissa tai Basessa kuin Ethereumin pääketjulla.</p>
+    </div>
+    <div class="vastuuvapaus">
+  <strong>Huomio:</strong> Tämä sisältö on koulutusta, ei sijoitusneuvontaa. Kryptovaluutat ovat erittäin riskialttiita ja voit menettää koko sijoituksesi. Tee aina oma tutkimuksesi (DYOR) ja vastaa itse päätöksistäsi. Kirjoittaja ei vastaa mahdollisista tappioista.
+</div>
+    <div class="cta">
+  <h2>Seuraa Kryptokoulua</h2>
+  <p>Uudet oppaat, markkinahavainnot ja airdrop-vinkit ilmestyvät ensin somessa. Liity mukaan ja opettele yhdessä muiden kanssa.</p>
+  <div class="cta__napit">
+    <a href="https://x.com/Kryptokoulu" target="_blank" rel="noopener" class="nappi nappi--paa">Seuraa X:ssä</a>
+    <a href="https://www.tradingview.com/?aff_id=168670" target="_blank" rel="noopener" class="nappi nappi--reuna">Avaa TradingView</a>
+  </div>
+</div>
+    <nav class="artikkeli-navi">
+<a href="metamask.html"><span>← Edellinen</span><b>MetaMaskin asennus</b></a>
+<a href="silloittaminen.html" class="seur"><span>Seuraava →</span><b>Tokenien siirto ketjujen välillä</b></a>
+</nav>
+  </article>
+</main>
+<footer class="alatunniste">
+  <div class="wrap">
+    <div class="alatunniste__grid">
+      <div>
+        <a href="../index.html" class="logo alatunniste__logo">
+          <span class="logo__merkki">K</span> Kryptokoulu
+        </a>
+        <p>Selkeät suomenkieliset oppaat kryptovaluuttojen maailmaan. Oikeita käytäntöjä, ei teknistä hömppää. Opettele turvallisesti, askel kerrallaan.</p>
+      </div>
+      <div>
+        <h5>Oppaat</h5>
+        <ul>
+          <li><a href="kryptolompakko.html">Kryptolompakko</a></li>
+          <li><a href="metamask.html">MetaMask</a></li>
+          <li><a href="silloittaminen.html">Silloittaminen</a></li>
+          <li><a href="staking.html">Staking</a></li>
+          <li><a href="airdrop.html">Airdrop-farmaus</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Seuraa</h5>
+        <ul>
+          <li><a href="https://x.com/Kryptokoulu" target="_blank" rel="noopener">X / Twitter</a></li>
+          <li><a href="https://coinmarketcap.com/community/profile/krytokoulu/" target="_blank" rel="noopener">CoinMarketCap</a></li>
+          <li><a href="https://www.tradingview.com/?aff_id=168670" target="_blank" rel="noopener">TradingView</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="alatunniste__alaosa">
+      <span>© 2026 Kryptokoulu. Ei sijoitusneuvontaa.</span>
+      <div class="some-linkit">
+        <a href="https://x.com/Kryptokoulu" target="_blank" rel="noopener">X</a>
+        <a href="https://coinmarketcap.com/community/profile/krytokoulu/" target="_blank" rel="noopener">CMC</a>
+        <a href="https://www.tradingview.com/?aff_id=168670" target="_blank" rel="noopener">TradingView</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Phantom, OKX ja Enkrypt",
+  "description": "Kolme muuta lompakkoa: Solana-natiivi Phantom, monipuolinen OKX ja yksityisyyden Enkrypt.",
+  "author": { "@type": "Organization", "name": "Kryptokoulu" },
+  "publisher": { "@type": "Organization", "name": "Kryptokoulu" },
+  "inLanguage": "fi-FI",
+  "url": "https://kryptokoulu.github.io/kryptokoulu/artikkelit/muut-lompakot.html"
+}
+</script>
