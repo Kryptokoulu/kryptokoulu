@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tokenien siirto ketjujen välillä | Kryptokoulu</title>
+<meta name="description" content="deBridge-opas, kaasumaksut, miksi ETH on halvempaa L2:lla ja miksi varat kuuluvat omaan lompakkoon.">
+<meta name="keywords" content="silloittaminen, deBridge, kaasumaksut, Layer 2, Arbitrum, Base, bridging krypto">
+<meta name="author" content="Kryptokoulu">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://kryptokoulu.github.io/kryptokoulu/artikkelit/silloittaminen.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tokenien siirto ketjujen välillä | Kryptokoulu">
+<meta property="og:description" content="deBridge-opas, kaasumaksut, miksi ETH on halvempaa L2:lla ja miksi varat kuuluvat omaan lompakkoon.">
+<meta property="og:url" content="https://kryptokoulu.github.io/kryptokoulu/artikkelit/silloittaminen.html">
+<meta property="og:site_name" content="Kryptokoulu">
+<meta property="og:locale" content="fi_FI">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@Kryptokoulu">
+<meta name="twitter:title" content="Tokenien siirto ketjujen välillä | Kryptokoulu">
+<meta name="twitter:description" content="deBridge-opas, kaasumaksut, miksi ETH on halvempaa L2:lla ja miksi varat kuuluvat omaan lompakkoon.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/tyyli.css">
+</head>
+<body>
+
+<nav class="navi">
+  <div class="navi__sisalto">
+    <a href="../index.html" class="logo">
+      <span class="logo__merkki">K</span> Kryptokoulu
+    </a>
+    <div class="navi__linkit" id="navilinkit">
+      <a href="../index.html#aloittelija">Aloittelija</a>
+      <a href="../index.html#edistynyt">Edistynyt</a>
+      <a href="../index.html#tietoa">Tietoa</a>
+      <a href="https://www.tradingview.com/?aff_id=168670" target="_blank" rel="noopener">TradingView</a>
+    </div>
+    <button class="navi-nappi" onclick="document.getElementById('navilinkit').classList.toggle('auki')" aria-label="Valikko">☰</button>
+  </div>
+</nav>
+
+<main class="artikkeli">
+  <article class="artikkeli__wrap">
+    <nav class="murupolku">
+      <a href="../index.html">Etusivu</a> <span>/</span>
+      <a href="../index.html#aloittelija">Aloittelija</a> <span>/</span>
+      <span>Tokenien siirto ketjujen välillä</span>
+    </nav>
+    <div class="artikkeli__meta">
+      <span class="merkki">Aloittelija</span>
+      <span class="lukuaika">⏱ 13 min lukuaika</span>
+    </div>
+    <h1>Tokenien siirto ketjujen välillä</h1>
+    <p class="artikkeli__ingressi">Tokenit elävät eri lohkoketjuilla, ja usein tarvitset saman tokenin toisella ketjulla kuin missä se nyt on. Tätä kutsutaan silloittamiseksi (bridging). Tässä oppaassa opetellaan siirtämään tokeneita ketjujen välillä turvallisesti deBridgen avulla, ymmärtämään kaasumaksuja, ja näkemään miksi ETH on paljon halvempaa käyttää Arbitrumissa tai Basessa kuin Ethereumin pääketjulla. Samalla käydään läpi miksi varoja ei koskaan säilötä pörssissä vaan omassa lompakossa.</p>
+    <nav class="sisallys">
+      <h2>Sisällys</h2>
+      <ol>
+          <li><a href="#mika-silta">Mitä silloittaminen tarkoittaa</a></li>
+          <li><a href="#kaasu">Kaasumaksut selkokielellä</a></li>
+          <li><a href="#l2">Miksi ETH on halvempaa Arbitrumissa ja Basessa</a></li>
+          <li><a href="#debridge">deBridge askel askeleelta</a></li>
+          <li><a href="#porssi">Miksi varat kuuluvat omaan lompakkoon</a></li>
+          <li><a href="#muistilista">Muistilista</a></li>
+      </ol>
+    </nav>
+    <div class="sisalto">
+<h2 id="mika-silta">Mitä silloittaminen tarkoittaa</h2>
+
+<p>Kuvittele lohkoketjut erillisinä saarina. Ethereum on yksi saari, Arbitrum toinen, Base kolmas, Solana neljäs. Jokaisella saarella on omat varasi, ja ne eivät automaattisesti liiku saarelta toiselle. <strong>Silta</strong> (bridge) on palvelu, joka siirtää arvon saarelta toiselle.</p>
+
+<p>Miksi tarvitset tätä? Esimerkiksi sinulla on USDC:tä Ethereumin pääketjulla, mutta haluat käyttää sovellusta, joka toimii Arbitrumissa – missä siirrot ovat paljon halvempia. Silloitat USDC:si Ethereumista Arbitrumiin, ja voit käyttää sitä siellä. Silloittaminen ei muuta tokenin luonnetta (USDC pysyy USDC:nä), vaan siirtää sen toiselle ketjulle.</p>
+
+<p>Teknisesti sillat toimivat eri tavoin, mutta käyttäjän näkökulmasta idea on yksinkertainen: annat tokeneita yhdellä ketjulla ja saat vastaavan määrän toisella ketjulla. <strong>deBridge</strong> on yksi luotettavimmista ja käytetyimmistä silloista, ja käytämme sitä esimerkkinä.</p>
+
+<h2 id="kaasu">Kaasumaksut selkokielellä</h2>
+
+<p>Jokainen toiminto lohkoketjussa – siirto, vaihto, silloitus – vaatii <strong>kaasumaksun</strong> (gas fee). Tämä on maksu verkkoa ylläpitäville tietokoneille siitä, että ne käsittelevät ja vahvistavat tapahtumasi. Kaasu maksetaan aina verkon <strong>natiivitokenilla</strong>: Ethereumissa ETH:lla, Arbitrumissa ja Basessa myös ETH:lla, Solanassa SOL:lla, Polygonissa POL:lla.</p>
+
+<p>Kaasumaksun suuruus riippuu kahdesta asiasta:</p>
+
+<ul>
+  <li><strong>Verkon ruuhka:</strong> kun moni käyttää verkkoa samaan aikaan, kaasu kallistuu – kuten ruuhka-ajan taksi. Ethereumin pääketjulla tämä voi tarkoittaa jopa kymmeniä euroja yhdestä siirrosta ruuhkaisina hetkinä.</li>
+  <li><strong>Toiminnon monimutkaisuus:</strong> yksinkertainen siirto maksaa vähemmän kuin monimutkainen sovellusvuorovaikutus.</li>
+</ul>
+
+<div class="laatikko laatikko--varo">
+  <div class="laatikko__otsikko">⚠️ Pidä aina kaasua tallessa</div>
+  <p>Jos sinulla on tokeneita ketjulla mutta ei lainkaan sen natiivitokenia kaasuun, et voi tehdä mitään – et edes siirtää tokeneita pois. Pidä aina pieni määrä natiivitokenia (ETH, SOL) jokaisella ketjulla jota käytät.</p>
+</div>
+
+<h2 id="l2">Miksi ETH on halvempaa Arbitrumissa ja Basessa</h2>
+
+<p>Tämä on tärkeä oivallus, joka säästää sinulle paljon rahaa. Ethereumin pääketju (kutsutaan „Layer 1” eli L1) on turvallinen ja hajautettu, mutta myös <strong>hidas ja kallis</strong>, koska jokainen tapahtuma käsitellään koko verkon toimesta. Ruuhkaisina aikoina yksi siirto voi maksaa kymmeniä euroja.</p>
+
+<p><strong>Layer 2 -verkot</strong> (L2) kuten Arbitrum, Base ja Optimism ratkaisevat tämän. Ne ovat verkkoja, jotka <strong>käsittelevät tapahtumat itse ja kirjaavat lopputuloksen tiivistettynä Ethereumin pääketjulle</strong>. Ajattele sitä näin: sen sijaan että jokainen ostos kirjattaisiin erikseen pääkirjaan, L2 kerää tuhansia tapahtumia yhteen nippuun ja kirjaa vain yhteenvedon. Näin kustannus jakautuu monen käyttäjän kesken.</p>
+
+<p>Lopputulos: sama ETH, sama turvallisuus periytyy Ethereumista, mutta <strong>siirrot maksavat murto-osan</strong> – usein muutaman sentin sen sijaan että maksaisit euroja tai kymmeniä euroja. Tämä on syy, miksi suuri osa DeFi-toiminnasta on siirtynyt L2-verkoille. Kun opettelet ja teet pieniä siirtoja, <strong>tee ne mieluummin L2:lla kuin Ethereumin pääketjulla</strong> – säästät merkittävästi.</p>
+
+<div class="laatikko laatikko--vinkki">
+  <div class="laatikko__otsikko">💡 Käytännön sääntö</div>
+  <p>Aloittelijana ja pieniä summia liikutellessa suosi L2-verkkoja (Arbitrum, Base). Ethereumin pääketju kannattaa varata tilanteisiin joissa se on välttämätön. Näin kaasumaksut pysyvät pieninä ja opettelu on edullista.</p>
+</div>
+
+<h2 id="debridge">deBridge askel askeleelta</h2>
+
+<p>Käydään läpi silloittaminen deBridgen avulla. Periaate on sama muissakin silloissa, joten opit yleisen logiikan.</p>
+
+<ol class="askeleet">
+  <li><b>Mene deBridge-sovellukseen ja tarkista osoite</b>Etsi virallinen deBridge-sivusto huolellisesti (varo väärennöksiä hakumainoksissa). Tallenna oikea osoite kirjanmerkiksi tulevaa käyttöä varten.</li>
+  <li><b>Yhdistä lompakkosi</b>Klikkaa „Connect Wallet” ja valitse lompakkosi (esim. MetaMask). Hyväksy yhteys.</li>
+  <li><b>Valitse lähtö- ja kohdeketju</b>Valitse mistä ketjusta (esim. Ethereum) ja mihin ketjuun (esim. Arbitrum) siirrät, sekä mitä tokenia ja kuinka paljon.</li>
+  <li><b>Tarkista arvio: saatava määrä ja kulut</b>deBridge näyttää kuinka paljon saat kohdeketjulla ja mitä silloitus maksaa (kaasu + mahdollinen palvelumaksu). Lue tämä huolella – varmista että lopputulos on järkevä.</li>
+  <li><b>Tee ensin pieni testisiirto</b>Aivan kuten tavallisissa siirroissa: silloita ensin pieni summa. Varmista että se saapuu kohdeketjulle oikein ennen kuin siirrät enemmän.</li>
+  <li><b>Hyväksy ja odota</b>Hyväksy tapahtuma lompakossasi. Silloitus voi kestää muutamasta sekunnista minuutteihin. Seuraa etenemistä sovelluksessa.</li>
+  <li><b>Varmista saapuminen</b>Kun silloitus valmistuu, tarkista että tokenit näkyvät kohdeketjulla lompakossasi. Vaihda tarvittaessa lompakon verkko nähdäksesi ne.</li>
+</ol>
+
+<div class="laatikko laatikko--varo">
+  <div class="laatikko__otsikko">⚠️ Turvallisuus silloittaessa</div>
+  <p>Käytä vain tunnettuja, luotettavia siltoja. Tarkista aina sivuston osoite – huijaussillat ovat yleisiä. Tee testisiirto uuteen reittiin. Varmista että sinulla on kaasua sekä lähtö- että kohdeketjulla. Älä koskaan hyväksy siirtoa jonka lopputulosta et ymmärrä.</p>
+</div>
+
+<h2 id="porssi">Miksi varat kuuluvat omaan lompakkoon</h2>
+
+<p>Tähän on hyvä palata, koska se on kryptomaailman keskeisimpiä periaatteita. Kun pidät varoja <strong>pörssissä</strong> (Coinbase, Binance, Kraken jne.), et todellisuudessa hallitse niitä – pörssi hallitsee. Sinulla on tili ja saldo, mutta yksityiset avaimet ovat pörssin hallussa. Tästä syystä sanotaan: <strong>„not your keys, not your coins”</strong>.</p>
+
+<p>Miksi tämä on ongelma?</p>
+
+<ul>
+  <li><strong>Pörssi voi kaatua:</strong> historia tuntee useita pörssejä, jotka ovat menneet konkurssiin tai osoittautuneet petoksiksi, jolloin käyttäjien varat ovat kadonneet. Kun varat ovat pörssissä, olet riippuvainen pörssin maksukyvystä ja rehellisyydestä.</li>
+  <li><strong>Tili voidaan jäädyttää:</strong> pörssi voi jäädyttää tilisi tai rajoittaa nostoja eri syistä. Omassa lompakossa varat ovat aina käytettävissäsi.</li>
+  <li><strong>Pörssi voidaan hakkeroida:</strong> pörssit ovat suuria kohteita. Vaikka moni on turvallinen, riski on olemassa ja se ei ole sinun hallinnassasi.</li>
+</ul>
+
+<p>Ratkaisu on yksinkertainen: käytä pörssiä vain <strong>ostamiseen ja myymiseen</strong> (fiat-rahan vaihtoon kryptoksi ja takaisin), mutta <strong>siirrä varat omaan lompakkoosi säilytettäväksi</strong>. Pörssi on kuin valuutanvaihtopiste – käytä sitä vaihtamiseen, mutta älä jätä säästöjäsi sinne. Näin sinulla on täysi hallinta ja et ole riippuvainen kolmannesta osapuolesta.</p>
+
+<div class="laatikko laatikko--vinkki">
+  <div class="laatikko__otsikko">💡 Oikea työnjako</div>
+  <p><strong>Pörssi:</strong> osta ja myy (fiat ↔ krypto). <strong>Oma lompakko:</strong> säilytä ja käytä sovelluksia. Näin yhdistät pörssin kätevyyden ostamisessa ja oman lompakon turvan säilytyksessä. Suuret summat kuuluvat lisäksi kylmälompakkoon.</p>
+</div>
+
+<h2 id="muistilista">Muistilista</h2>
+
+<ul>
+  <li>✅ <strong>Silloittaminen</strong> siirtää tokenin ketjulta toiselle – käytä luotettavaa siltaa kuten deBridge.</li>
+  <li>✅ <strong>Kaasumaksut</strong> maksetaan natiivitokenilla – pidä aina pieni puskuri jokaisella ketjulla.</li>
+  <li>✅ <strong>L2-verkot</strong> (Arbitrum, Base) ovat paljon halvempia kuin Ethereumin pääketju – suosi niitä pienissä siirroissa.</li>
+  <li>✅ Tee aina <strong>testisiirto</strong> uuteen silloitusreittiin.</li>
+  <li>✅ Käytä pörssiä vain ostoon ja myyntiin – <strong>säilytä varat omassa lompakossa</strong>.</li>
+</ul>
+
+<p>Seuraavaksi opetellaan harjoittelemaan koko tätä lompakon ja siirtojen maailmaa <strong>ilman omaa rahaa</strong> – Monad-testnetin ja ilmaisten testitokenien avulla.</p>
+    </div>
+    <div class="vastuuvapaus">
+  <strong>Huomio:</strong> Tämä sisältö on koulutusta, ei sijoitusneuvontaa. Kryptovaluutat ovat erittäin riskialttiita ja voit menettää koko sijoituksesi. Tee aina oma tutkimuksesi (DYOR) ja vastaa itse päätöksistäsi. Kirjoittaja ei vastaa mahdollisista tappioista.
+</div>
+    <div class="cta">
+  <h2>Seuraa Kryptokoulua</h2>
+  <p>Uudet oppaat, markkinahavainnot ja airdrop-vinkit ilmestyvät ensin somessa. Liity mukaan ja opettele yhdessä muiden kanssa.</p>
+  <div class="cta__napit">
+    <a href="https://x.com/Kryptokoulu" target="_blank" rel="noopener" class="nappi nappi--paa">Seuraa X:ssä</a>
+    <a href="https://www.tradingview.com/?aff_id=168670" target="_blank" rel="noopener" class="nappi nappi--reuna">Avaa TradingView</a>
+  </div>
+</div>
+    <nav class="artikkeli-navi">
+<a href="muut-lompakot.html"><span>← Edellinen</span><b>Phantom, OKX ja Enkrypt</b></a>
+<a href="testnet-harjoittelu.html" class="seur"><span>Seuraava →</span><b>Harjoittele ilman omaa rahaa</b></a>
+</nav>
+  </article>
+</main>
+<footer class="alatunniste">
+  <div class="wrap">
+    <div class="alatunniste__grid">
+      <div>
+        <a href="../index.html" class="logo alatunniste__logo">
+          <span class="logo__merkki">K</span> Kryptokoulu
+        </a>
+        <p>Selkeät suomenkieliset oppaat kryptovaluuttojen maailmaan. Oikeita käytäntöjä, ei teknistä hömppää. Opettele turvallisesti, askel kerrallaan.</p>
+      </div>
+      <div>
+        <h5>Oppaat</h5>
+        <ul>
+          <li><a href="kryptolompakko.html">Kryptolompakko</a></li>
+          <li><a href="metamask.html">MetaMask</a></li>
+          <li><a href="silloittaminen.html">Silloittaminen</a></li>
+          <li><a href="staking.html">Staking</a></li>
+          <li><a href="airdrop.html">Airdrop-farmaus</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Seuraa</h5>
+        <ul>
+          <li><a href="https://x.com/Kryptokoulu" target="_blank" rel="noopener">X / Twitter</a></li>
+          <li><a href="https://coinmarketcap.com/community/profile/krytokoulu/" target="_blank" rel="noopener">CoinMarketCap</a></li>
+          <li><a href="https://www.tradingview.com/?aff_id=168670" target="_blank" rel="noopener">TradingView</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="alatunniste__alaosa">
+      <span>© 2026 Kryptokoulu. Ei sijoitusneuvontaa.</span>
+      <div class="some-linkit">
+        <a href="https://x.com/Kryptokoulu" target="_blank" rel="noopener">X</a>
+        <a href="https://coinmarketcap.com/community/profile/krytokoulu/" target="_blank" rel="noopener">CMC</a>
+        <a href="https://www.tradingview.com/?aff_id=168670" target="_blank" rel="noopener">TradingView</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Tokenien siirto ketjujen välillä",
+  "description": "deBridge-opas, kaasumaksut, miksi ETH on halvempaa L2:lla ja miksi varat kuuluvat omaan lompakkoon.",
+  "author": { "@type": "Organization", "name": "Kryptokoulu" },
+  "publisher": { "@type": "Organization", "name": "Kryptokoulu" },
+  "inLanguage": "fi-FI",
+  "url": "https://kryptokoulu.github.io/kryptokoulu/artikkelit/silloittaminen.html"
+}
+</script>
