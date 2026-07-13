@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vivutus: long ja short | Kryptokoulu</title>
+<meta name="description" content="HyperEVM-vivutus rehellisesti riskeineen, plus RSI ja MACD osto- ja myyntipisteiden löytämiseen.">
+<meta name="keywords" content="vivutus, leverage, long short, likvidaatio, RSI, MACD, tekninen analyysi, HyperEVM">
+<meta name="author" content="Kryptokoulu">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://kryptokoulu.github.io/kryptokoulu/artikkelit/vivutus.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vivutus: long ja short | Kryptokoulu">
+<meta property="og:description" content="HyperEVM-vivutus rehellisesti riskeineen, plus RSI ja MACD osto- ja myyntipisteiden löytämiseen.">
+<meta property="og:url" content="https://kryptokoulu.github.io/kryptokoulu/artikkelit/vivutus.html">
+<meta property="og:site_name" content="Kryptokoulu">
+<meta property="og:locale" content="fi_FI">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@Kryptokoulu">
+<meta name="twitter:title" content="Vivutus: long ja short | Kryptokoulu">
+<meta name="twitter:description" content="HyperEVM-vivutus rehellisesti riskeineen, plus RSI ja MACD osto- ja myyntipisteiden löytämiseen.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/tyyli.css">
+</head>
+<body>
+
+<nav class="navi">
+  <div class="navi__sisalto">
+    <a href="../index.html" class="logo">
+      <span class="logo__merkki">K</span> Kryptokoulu
+    </a>
+    <div class="navi__linkit" id="navilinkit">
+      <a href="../index.html#aloittelija">Aloittelija</a>
+      <a href="../index.html#edistynyt">Edistynyt</a>
+      <a href="../index.html#tietoa">Tietoa</a>
+      <a href="https://www.tradingview.com/?aff_id=168670" target="_blank" rel="noopener">TradingView</a>
+    </div>
+    <button class="navi-nappi" onclick="document.getElementById('navilinkit').classList.toggle('auki')" aria-label="Valikko">☰</button>
+  </div>
+</nav>
+
+<main class="artikkeli">
+  <article class="artikkeli__wrap">
+    <nav class="murupolku">
+      <a href="../index.html">Etusivu</a> <span>/</span>
+      <a href="../index.html#edistynyt">Edistynyt</a> <span>/</span>
+      <span>Vivutus: long ja short</span>
+    </nav>
+    <div class="artikkeli__meta">
+      <span class="merkki merkki--edist">Edistynyt</span>
+      <span class="lukuaika">⏱ 16 min lukuaika</span>
+    </div>
+    <h1>Vivutus: long ja short</h1>
+    <p class="artikkeli__ingressi">Vivutus (leverage) on kryptomaailman tehokkain ja vaarallisin työkalu. Se lupaa moninkertaiset tuotot – ja tuottaa moninkertaiset tappiot, usein koko panoksen menetyksen. Tämä opas käsittelee vivutusta rehellisesti, riskit edellä: mitä long ja short tarkoittavat, miten vivutus toimii esimerkiksi HyperEVM-ympäristössä, mikä on likvidaatio ja miksi useimmat häviävät. Lisäksi käydään läpi kaksi teknisen analyysin työkalua, RSI ja MACD, jotka voivat auttaa hahmottamaan osto- ja myyntipisteitä – mutta eivät poista riskiä.</p>
+    <nav class="sisallys">
+      <h2>Sisällys</h2>
+      <ol>
+          <li><a href="#mika">Mitä vivutus tarkoittaa</a></li>
+          <li><a href="#long-short">Long ja short</a></li>
+          <li><a href="#likvidaatio">Likvidaatio – miksi useimmat häviävät</a></li>
+          <li><a href="#hyperevm">Vivutus HyperEVM-ympäristössä</a></li>
+          <li><a href="#rsi">RSI – yliostettu ja ylimyyty</a></li>
+          <li><a href="#macd">MACD – trendin käänteet</a></li>
+          <li><a href="#yhdessa">Työkalut yhdessä – ja niiden rajat</a></li>
+          <li><a href="#yhteenveto">Yhteenveto</a></li>
+      </ol>
+    </nav>
+    <div class="sisalto">
+<h2 id="mika">Mitä vivutus tarkoittaa</h2>
+
+<p>Vivutus tarkoittaa <strong>lainatun pääoman käyttämistä</strong> position kasvattamiseen. Kun otat esimerkiksi 10-kertaisen vivun („10x leverage”), 100 euron omalla pääomalla hallitset 1 000 euron positiota. Tämä tarkoittaa, että sekä voitot että tappiot kertautuvat kymmenkertaisiksi suhteessa hinnanmuutokseen.</p>
+
+<p>Esimerkki: jos otat 10x vivun ja hinta liikkuu 5 % edukseesi, teet 50 % voiton omalle pääomallesi. Kuulostaa hienolta. Mutta jos hinta liikkuu 5 % <strong>väärään</strong> suuntaan, menetät 50 % pääomastasi. Ja jos hinta liikkuu 10 % väärään suuntaan, <strong>menetät koko panoksesi</strong> – positio likvidoidaan (suljetaan pakolla). Tästä lisää alla.</p>
+
+<div class="laatikko laatikko--vaara">
+  <div class="laatikko__otsikko">⚠️ Lue tämä ennen kaikkea muuta</div>
+  <p>Vivutus on nopein tapa menettää rahaa kryptossa. Valtaosa vivutetuista kaupankävijöistä häviää pitkällä aikavälillä. Mitä suurempi vipu, sitä pienempi hinnanmuutos tarvitaan tyhjentämään tilisi. Jos olet aloittelija, älä käytä vipua – opettele ensin kaupankäynti ilman sitä. Tämä opas selittää miten se toimii, jotta ymmärrät riskin, ei kannustaakseen käyttämään sitä.</p>
+</div>
+
+<h2 id="long-short">Long ja short</h2>
+
+<p>Vivutetussa kaupankäynnissä voit ottaa position kahteen suuntaan:</p>
+
+<h3>Long (pitkä positio)</h3>
+<p>Otat longin kun uskot hinnan <strong>nousevan</strong>. Ostat (vivulla), ja jos hinta nousee, voitat. Jos hinta laskee, häviät. Tämä on intuitiivisin suunta – samaa kuin tavallinen ostaminen, mutta vivutettuna.</p>
+
+<h3>Short (lyhyt positio)</h3>
+<p>Otat shortin kun uskot hinnan <strong>laskevan</strong>. Tässä ansaitset jos hinta laskee ja häviät jos se nousee. Teknisesti „lainaat” tokenia, myyt sen, ja ostat takaisin halvemmalla – erotus on voittosi. Short on vaikeampi hahmottaa, ja siinä on erityinen vaara: tappio voi teoriassa olla rajaton, koska hinnalla ei ole ylärajaa nousta.</p>
+
+<div class="laatikko laatikko--varo">
+  <div class="laatikko__otsikko">⚠️ Shortin erityisvaara</div>
+  <p>Longissa maksimitappio on panoksesi (hinta voi pudota korkeintaan nollaan). Shortissa hinta voi nousta periaatteessa rajattomasti, joten tapppotentiaali on suurempi. Vivutettu short on erityisen vaarallinen – äkillinen nousu voi likvidoida position hetkessä.</p>
+</div>
+
+<h2 id="likvidaatio">Likvidaatio – miksi useimmat häviävät</h2>
+
+<p><strong>Likvidaatio</strong> on vivutuksen keskeisin riski. Kun otat vivutetun position, sinulla on „likvidaatiohinta” – hintataso, jossa tappiosi syö koko vakuutesi (panoksesi). Jos hinta saavuttaa tämän tason, positio <strong>suljetaan automaattisesti pakolla</strong> ja menetät koko panoksesi. Et voi enää „odottaa että hinta palaa” – raha on mennyttä.</p>
+
+<p>Mitä suurempi vipu, sitä lähempänä likvidaatiohinta on nykyhinnasta. Esimerkiksi:</p>
+
+<ul>
+  <li><strong>2x vipu:</strong> hinnan pitää liikkua noin 50 % väärään suuntaan likvidoidakseen. Enemmän pelivaraa.</li>
+  <li><strong>10x vipu:</strong> jo noin 10 % liike väärään suuntaan likvidoi. Krypto liikkuu tämän helposti päivässä.</li>
+  <li><strong>50x vipu:</strong> noin 2 % liike riittää. Tämä voi tapahtua minuuteissa. Käytännössä uhkapeliä.</li>
+</ul>
+
+<p>Tämä on syy miksi useimmat vivuttajat häviävät: krypto on erittäin volatiilia, ja korkealla vivulla jo pieni normaali heilahdus riittää tyhjentämään tilin. Markkina ei tarvitse edes liikkua „väärin” pitkällä aikavälillä – riittää että se piip pahtaa väärään suuntaan hetkeksi, ja positio on jo mennyt.</p>
+
+<div class="laatikko laatikko--vaara">
+  <div class="laatikko__otsikko">⚠️ Likvidaatio on lopullinen</div>
+  <p>Kun positio likvidoituu, menetät koko panoksen etkä hyödy siitä vaikka hinta palaisi myöhemmin. Korkea vipu tarkoittaa että sinut voidaan likvidoida pienelläkin heilahduksella. Tämä on matemaattinen syy siihen, miksi vivutus tuhoaa useimpien tilit.</p>
+</div>
+
+<h2 id="hyperevm">Vivutus HyperEVM-ympäristössä</h2>
+
+<p>HyperEVM on esimerkki ympäristöstä, jossa vivutettua kaupankäyntiä voi tehdä hajautetusti. Yleisperiaatteet ovat samat kuin vivutuksessa yleensä: voit avata long- tai short-position valitulla vivulla, sinulla on vakuus ja likvidaatiohinta, ja positio suljetaan jos hinta saavuttaa likvidaatiotason.</p>
+
+<p>Hajautetussa ympäristössä kaupankäynti tapahtuu omasta lompakosta käsin ilman keskitettyä välikättä. Tämä tuo mukanaan sekä etuja (hallitset itse varojasi) että vastuita (sinun on ymmärrettävä mitä teet, koska kukaan ei ole estämässä virheitä). Yleiset periaatteet toimivat näin:</p>
+
+<ol class="askeleet">
+  <li><b>Talleta vakuus</b>Siirrät vakuudeksi tokeneita (esim. stablecoinia) kaupankäyntiin. Tämä on pääoma jonka voit menettää.</li>
+  <li><b>Valitse suunta ja vipu</b>Päätät long vai short, ja kuinka suuren vivun otat. <strong>Pienempi vipu = pienempi likvidaatioriski.</strong></li>
+  <li><b>Seuraa likvidaatiohintaa</b>Alusta näyttää likvidaatiohinnan. Tiedä se aina – se kertoo kuinka paljon hinta voi liikkua ennen kuin menetät kaiken.</li>
+  <li><b>Käytä stop-lossia</b>Aseta etukäteen taso jolla suljet position tappiolla hallitusti, ennen likvidaatiota. Tämä rajaa tappion.</li>
+  <li><b>Hallitse positiokokoa</b>Älä koskaan laita koko pääomaa yhteen vivutettuun positioon. Riskien hajauttaminen ja maltilliset positiokoot ovat ainoa tapa selvitä pitkällä aikavälillä.</li>
+</ol>
+
+<h2 id="rsi">RSI – yliostettu ja ylimyyty</h2>
+
+<p>Tekninen analyysi ei ole taikuutta eikä takaa mitään, mutta se tarjoaa työkaluja hahmottaa markkinan tilaa. Yksi yleisimmistä on <strong>RSI</strong> (Relative Strength Index, suhteellinen voimaindeksi). Se on mittari välillä 0–100, joka kuvaa onko hinta noussut tai laskenut „liikaa liian nopeasti”.</p>
+
+<ul>
+  <li><strong>RSI yli 70:</strong> perinteisesti tulkitaan <em>yliostetuksi</em> – hinta on noussut nopeasti ja voi olla altis korjaukselle alaspäin. Mahdollinen varoitus longin ottajalle.</li>
+  <li><strong>RSI alle 30:</strong> perinteisesti tulkitaan <em>ylimyydyksi</em> – hinta on laskenut nopeasti ja voi olla altis pompulle ylöspäin. Mahdollinen kiinnostuskohta ostajalle.</li>
+  <li><strong>RSI 30–70:</strong> neutraali alue.</li>
+</ul>
+
+<p>RSI:tä käytetään hahmottamaan mahdollisia käännekohtia. Mutta <strong>varoitus</strong>: yliostettu voi pysyä yliostettuna pitkään vahvassa nousussa, ja ylimyyty voi pysyä ylimyytynä rajussa laskussa. RSI ei ole ostosignaali sinänsä – se on yksi vihje muiden joukossa.</p>
+
+<div class="laatikko laatikko--vinkki">
+  <div class="laatikko__otsikko">💡 Näin tulkitset RSI:tä</div>
+  <p>Aja​ttele RSI:tä kuumemittarina: korkea luku kertoo että markkina „käy kuumana”, matala että se on „kylmä”. Se ei kerro milloin tarkalleen käänne tulee, vain että tilanne on ääripäässä. Käytä sitä yhtenä työkaluna, ei ainoana.</p>
+</div>
+
+<h2 id="macd">MACD – trendin käänteet</h2>
+
+<p><strong>MACD</strong> (Moving Average Convergence Divergence) on toinen suosittu työkalu, joka auttaa hahmottamaan trendin suuntaa ja mahdollisia käänteitä. Se perustuu kahden liukuvan keskiarvon suhteeseen ja koostuu tyypillisesti MACD-viivasta, signaaliviivasta ja histogrammista.</p>
+
+<p>Yksinkertaistettuna:</p>
+
+<ul>
+  <li><strong>MACD-viiva ylittää signaaliviivan alhaalta ylös:</strong> tulkitaan usein nousevan momentumin merkiksi (mahdollinen ostosignaali).</li>
+  <li><strong>MACD-viiva ylittää signaaliviivan ylhäältä alas:</strong> tulkitaan usein laskevan momentumin merkiksi (mahdollinen myyntisignaali).</li>
+  <li><strong>Histogrammi:</strong> näyttää viivojen välisen eron ja auttaa näkemään momentumin voimistumisen tai heikkenemisen.</li>
+</ul>
+
+<p>MACD auttaa hahmottamaan onko trendi vahvistumassa vai heikkenemässä. Kuten RSI, sekään ei ole varma signaali – se antaa vääriä signaaleja erityisesti sivuttaisliikkeessä, jossa hinta ei ole selkeässä trendissä.</p>
+
+<h2 id="yhdessa">Työkalut yhdessä – ja niiden rajat</h2>
+
+<p>Monet kaupankävijät käyttävät RSI:tä ja MACD:tä <strong>yhdessä</strong>: esimerkiksi etsitään tilannetta, jossa RSI on ylimyyty <em>ja</em> MACD näyttää kääntymässä ylös – tämä voi vahvistaa näkemystä mahdollisesta pohjasta. Useamman työkalun yhtenevä signaali on vahvempi kuin yksittäinen.</p>
+
+<p>Voit seurata näitä indikaattoreita esimerkiksi <a href="https://www.tradingview.com/?aff_id=168670" target="_blank" rel="noopener">TradingView'ssä</a>, joka on suosituin työkalu teknisen analyysin tekemiseen ja tarjoaa RSI:n, MACD:n ja lukemattomia muita indikaattoreita.</p>
+
+<div class="laatikko laatikko--vaara">
+  <div class="laatikko__otsikko">⚠️ Tekninen analyysi ei poista riskiä</div>
+  <p>Mikään indikaattori ei ennusta tulevaisuutta. RSI ja MACD kuvaavat mennyttä ja nykyistä hintadataa – ne eivät tiedä mitä tapahtuu seuraavaksi. Markkina voi liikkua vastoin kaikkia signaaleja. Erityisesti vivutettuna väärä veto voi likvidoida sinut riippumatta siitä mitä indikaattorit näyttivät. Käytä työkaluja apuna, mutta älä luota niihin sokeasti.</p>
+</div>
+
+<h2 id="yhteenveto">Yhteenveto</h2>
+
+<ul>
+  <li>⚠️ <strong>Vivutus</strong> kertoo sekä voitot että tappiot – se on nopein tapa menettää rahaa. Aloittelijan ei pitäisi käyttää sitä.</li>
+  <li>✅ <strong>Long</strong> = veto nousun puolesta, <strong>short</strong> = veto laskun puolesta (ja shortin tappio voi olla suurempi).</li>
+  <li>⚠️ <strong>Likvidaatio</strong> sulkee position pakolla ja vie koko panoksen – korkea vipu likvidoituu pienellä liikkeellä.</li>
+  <li>✅ Jos vivutat: <strong>pieni vipu, stop-loss, maltillinen positiokoko</strong>.</li>
+  <li>✅ <strong>RSI</strong> (yliostettu/ylimyyty) ja <strong>MACD</strong> (trendin käänteet) auttavat hahmottamaan markkinaa – mutta eivät ennusta tulevaa eivätkä poista riskiä.</li>
+</ul>
+
+<p>Viimeisessä oppaassa siirrytään rakentavampaan ja pitkäjänteisempään aiheeseen: airdrop-farmaukseen – tapaan ansaita ilmaisia tokeneita käyttämällä uusia protokollia, ja siihen miksi yksi huolellisesti hoidettu lompakko ja some-profiili voittaa sadan lompakon strategian.</p>
+    </div>
+    <div class="vastuuvapaus">
+  <strong>Huomio:</strong> Tämä sisältö on koulutusta, ei sijoitusneuvontaa. Kryptovaluutat ovat erittäin riskialttiita ja voit menettää koko sijoituksesi. Tee aina oma tutkimuksesi (DYOR) ja vastaa itse päätöksistäsi. Kirjoittaja ei vastaa mahdollisista tappioista.
+</div>
+    <div class="cta">
+  <h2>Seuraa Kryptokoulua</h2>
+  <p>Uudet oppaat, markkinahavainnot ja airdrop-vinkit ilmestyvät ensin somessa. Liity mukaan ja opettele yhdessä muiden kanssa.</p>
+  <div class="cta__napit">
+    <a href="https://x.com/Kryptokoulu" target="_blank" rel="noopener" class="nappi nappi--paa">Seuraa X:ssä</a>
+    <a href="https://www.tradingview.com/?aff_id=168670" target="_blank" rel="noopener" class="nappi nappi--reuna">Avaa TradingView</a>
+  </div>
+</div>
+    <nav class="artikkeli-navi">
+<a href="staking.html"><span>← Edellinen</span><b>Staking eri palveluissa</b></a>
+<a href="airdrop.html" class="seur"><span>Seuraava →</span><b>Airdrop-farmaus</b></a>
+</nav>
+  </article>
+</main>
+<footer class="alatunniste">
+  <div class="wrap">
+    <div class="alatunniste__grid">
+      <div>
+        <a href="../index.html" class="logo alatunniste__logo">
+          <span class="logo__merkki">K</span> Kryptokoulu
+        </a>
+        <p>Selkeät suomenkieliset oppaat kryptovaluuttojen maailmaan. Oikeita käytäntöjä, ei teknistä hömppää. Opettele turvallisesti, askel kerrallaan.</p>
+      </div>
+      <div>
+        <h5>Oppaat</h5>
+        <ul>
+          <li><a href="kryptolompakko.html">Kryptolompakko</a></li>
+          <li><a href="metamask.html">MetaMask</a></li>
+          <li><a href="silloittaminen.html">Silloittaminen</a></li>
+          <li><a href="staking.html">Staking</a></li>
+          <li><a href="airdrop.html">Airdrop-farmaus</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Seuraa</h5>
+        <ul>
+          <li><a href="https://x.com/Kryptokoulu" target="_blank" rel="noopener">X / Twitter</a></li>
+          <li><a href="https://coinmarketcap.com/community/profile/krytokoulu/" target="_blank" rel="noopener">CoinMarketCap</a></li>
+          <li><a href="https://www.tradingview.com/?aff_id=168670" target="_blank" rel="noopener">TradingView</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="alatunniste__alaosa">
+      <span>© 2026 Kryptokoulu. Ei sijoitusneuvontaa.</span>
+      <div class="some-linkit">
+        <a href="https://x.com/Kryptokoulu" target="_blank" rel="noopener">X</a>
+        <a href="https://coinmarketcap.com/community/profile/krytokoulu/" target="_blank" rel="noopener">CMC</a>
+        <a href="https://www.tradingview.com/?aff_id=168670" target="_blank" rel="noopener">TradingView</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Vivutus: long ja short",
+  "description": "HyperEVM-vivutus rehellisesti riskeineen, plus RSI ja MACD osto- ja myyntipisteiden löytämiseen.",
+  "author": { "@type": "Organization", "name": "Kryptokoulu" },
+  "publisher": { "@type": "Organization", "name": "Kryptokoulu" },
+  "inLanguage": "fi-FI",
+  "url": "https://kryptokoulu.github.io/kryptokoulu/artikkelit/vivutus.html"
+}
+</script>
