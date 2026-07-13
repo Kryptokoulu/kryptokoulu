@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://keyptokoulu.github.io/kryptokoulu/sitemap.xml
+Sitemap: https://kryptokoulu.github.io/kryptokoulu/sitemap.xml
