@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kryptolompakon turvallisuus | Kryptokoulu</title>
+<meta name="description" content="Varojen siirto pörssistä, ketjun tarkistus, revoke.cash, SPL-tilit ja yleisimmät ansat.">
+<meta name="keywords" content="kryptolompakko turvallisuus, revoke.cash, SPL token, Sol Incinerator, huijaustokenit, krypto turvallisuus">
+<meta name="author" content="Kryptokoulu">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://kryptokoulu.github.io/kryptokoulu/artikkelit/lompakon-turvallisuus.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kryptolompakon turvallisuus | Kryptokoulu">
+<meta property="og:description" content="Varojen siirto pörssistä, ketjun tarkistus, revoke.cash, SPL-tilit ja yleisimmät ansat.">
+<meta property="og:url" content="https://kryptokoulu.github.io/kryptokoulu/artikkelit/lompakon-turvallisuus.html">
+<meta property="og:site_name" content="Kryptokoulu">
+<meta property="og:locale" content="fi_FI">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@Kryptokoulu">
+<meta name="twitter:title" content="Kryptolompakon turvallisuus | Kryptokoulu">
+<meta name="twitter:description" content="Varojen siirto pörssistä, ketjun tarkistus, revoke.cash, SPL-tilit ja yleisimmät ansat.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/tyyli.css">
+</head>
+<body>
+
+<nav class="navi">
+  <div class="navi__sisalto">
+    <a href="../index.html" class="logo">
+      <span class="logo__merkki">K</span> Kryptokoulu
+    </a>
+    <div class="navi__linkit" id="navilinkit">
+      <a href="../index.html#aloittelija">Aloittelija</a>
+      <a href="../index.html#edistynyt">Edistynyt</a>
+      <a href="../index.html#tietoa">Tietoa</a>
+      <a href="https://www.tradingview.com/?aff_id=168670" target="_blank" rel="noopener">TradingView</a>
+    </div>
+    <button class="navi-nappi" onclick="document.getElementById('navilinkit').classList.toggle('auki')" aria-label="Valikko">☰</button>
+  </div>
+</nav>
+
+<main class="artikkeli">
+  <article class="artikkeli__wrap">
+    <nav class="murupolku">
+      <a href="../index.html">Etusivu</a> <span>/</span>
+      <a href="../index.html#aloittelija">Aloittelija</a> <span>/</span>
+      <span>Kryptolompakon turvallisuus</span>
+    </nav>
+    <div class="artikkeli__meta">
+      <span class="merkki">Aloittelija</span>
+      <span class="lukuaika">⏱ 15 min lukuaika</span>
+    </div>
+    <h1>Kryptolompakon turvallisuus</h1>
+    <p class="artikkeli__ingressi">Lompakon perusteet ovat hallussa – nyt opetellaan pitämään varat turvassa käytännössä. Käydään läpi miten siirrät rahaa pörssistä tai vaihtopalvelusta lompakkoon oikein, miksi osoitteita ei koskaan kopioida explorerin kautta, miksi ketju pitää aina tarkistaa, mitä revoke.cash tekee, mikä on SPL-token-tili ja miten Sol Incinerator auttaa – sekä miksi tuntemattomia tokeneita ei ikinä kannata yrittää myydä.</p>
+    <nav class="sisallys">
+      <h2>Sisällys</h2>
+      <ol>
+          <li><a href="#siirto">Varojen siirto pörssistä lompakkoon</a></li>
+          <li><a href="#explorer">Miksi osoitetta ei koskaan kopioida explorerista</a></li>
+          <li><a href="#ketju">Miksi ketju pitää aina tarkistaa</a></li>
+          <li><a href="#revoke">Revoke.cash – kerran kuussa</a></li>
+          <li><a href="#spl">SPL-token-tilit ja Sol Incinerator</a></li>
+          <li><a href="#huijaustokenit">Älä myy tuntemattomia tokeneita</a></li>
+          <li><a href="#muistilista">Turvallisuuden muistilista</a></li>
+      </ol>
+    </nav>
+    <div class="sisalto">
+<h2 id="siirto">Varojen siirto pörssistä lompakkoon</h2>
+
+<p>Ostit juuri ensimmäiset kryptosi pörssistä (esimerkiksi Coinbase, Kraken tai Binance) tai vaihtopalvelusta kuten SimpleSwap. Nyt haluat siirtää ne omaan lompakkoosi – tämä on oikea ratkaisu, sillä pörssissä varat eivät ole todella sinun („not your keys, not your coins”). Mutta siirto on juuri se hetki, jossa aloittelijat tekevät kalliita virheitä. Käydään prosessi läpi askel askeleelta.</p>
+
+<ol class="askeleet">
+  <li><b>Avaa lompakkosi ja kopioi vastaanotto-osoite oikein</b>Avaa lompakkosi (esim. MetaMask), valitse oikea verkko, ja paina „Receive” tai kopioi osoite suoraan lompakon yläosasta. Käytä aina lompakon <strong>omaa kopiointipainiketta</strong> – älä kirjoita osoitetta käsin.</li>
+  <li><b>Varmista että verkko täsmää</b>Jos siirrät USDC:tä Ethereum-verkossa, vastaanotto-osoitteen pitää olla Ethereum-verkossa. Jos pörssi lähettää Polygon-verkossa mutta lompakkosi odottaa Ethereumia, varat voivat kadota. Tästä lisää seuraavassa osiossa.</li>
+  <li><b>Tee ensin pieni testisiirto</b>Älä siirrä koko summaa kerralla. Lähetä ensin pieni määrä (esim. 5–10 euron arvosta). Odota että se saapuu lompakkoon. Vasta kun näet sen lompakossasi, siirrä loput. Tämä muutaman euron „vakuutusmaksu” säästää sinut katastrofilta.</li>
+  <li><b>Tarkista osoitteen ensimmäiset ja viimeiset merkit</b>Ennen lähetystä vertaa liitetyn osoitteen alkua ja loppua siihen mitä kopioit. Esimerkiksi <code>0x71C7...9F3a</code>. Näin huomaat jos jokin on vaihtanut osoitteen (tästäkin lisää pian).</li>
+  <li><b>Vahvista ja odota</b>Lähetä loput varat vasta testisiirron onnistuttua. Siirto voi kestää sekunneista minuutteihin verkosta riippuen.</li>
+</ol>
+
+<div class="laatikko laatikko--vinkki">
+  <div class="laatikko__otsikko">💡 Testisiirto on halvin vakuutus</div>
+  <p>Muutaman euron testisiirto tuntuu turhalta, mutta se on ainoa tapa varmistaa että osoite ja verkko ovat oikein <em>ennen</em> kuin liikutat isoa summaa. Tee se aina uuteen osoitteeseen siirtäessäsi.</p>
+</div>
+
+<h2 id="explorer">Miksi osoitetta ei koskaan kopioida explorerista</h2>
+
+<p>Tämä on virhe, joka on maksanut ihmisille valtavia summia, ja se on tärkeä ymmärtää. Lohkoketjun <strong>explorer</strong> (kuten Etherscan tai Solscan) on verkkosivu, josta näkee kaikki lohkoketjun tapahtumat julkisesti. Moni menee sinne tarkistamaan siirtonsa – ja kopioi siinä samalla osoitteen suoraan explorerin sivulta seuraavaa siirtoa varten. <strong>Tätä ei saa tehdä.</strong></p>
+
+<p>Miksi ei? Explorerissa näkyvät kaikki tapahtumat, myös sellaiset joita <em>joku muu</em> on tehnyt sinun osoitteeseesi. Yksi yleinen huijaus on <strong>osoitteen myörkytys</strong> (address poisoning): huijari lähettää lompakkoosi pienen, arvottoman siirron osoitteesta, joka näyttää <em>melkein täysin samalta</em> kuin osoite jonne olet aiemmin lähettänyt rahaa – samat ensimmäiset ja viimeiset merkit, mutta keskikohta eroaa.</p>
+
+<p>Ideana on, että kun seuraavan kerran lähetät rahaa ja kopioit „tutun” osoitteen historiastasi tai explorerista, kopioitkin huijarin osoitteen – ja rahat menevät suoraan hänelle. Koska osoitteen alku ja loppu täsmäävät, virhe on todella helppo tehdä.</p>
+
+<div class="laatikko laatikko--vaara">
+  <div class="laatikko__otsikko">⚠️ Näin suojaudut</div>
+  <p>Kopioi vastaanotto-osoitteet aina <strong>alkuperäisestä luotettavasta lähteestä</strong>: vastaanottajan lompakosta suoraan, palvelun virallisesta käyttöliittymästä, tai tallennetusta osoitekirjasta. Älä koskaan kopioi osoitetta lohkoketjuselaimen tapahtumahistoriasta. Tarkista aina osoitteen <strong>keskikohta</strong>, ei vain alkua ja loppua.</p>
+</div>
+
+<h2 id="ketju">Miksi ketju pitää aina tarkistaa</h2>
+
+<p>Sama token voi olla olemassa monella eri lohkoketjulla. Esimerkiksi USDC-stablecoinia on olemassa Ethereumissa, Solanassa, Arbitrumissa, Basessa, Polygonissa ja monella muulla ketjulla. Ne näyttävät samalta ja niillä on sama nimi, mutta <strong>ne ovat eri verkoissa, eivätkä ne ole automaattisesti keskennään vaihtokelpoisia.</strong></p>
+
+<p>Tämä aiheuttaa kaksi tyypillistä ongelmaa:</p>
+
+<ul>
+  <li><strong>Väärä verkko siirrossa:</strong> lähetät varoja pörssistä verkossa, jota lompakkosi ei siinä osoitteessa tue, tai jota vastaanottava palvelu ei odota. Pahimmillaan varat katoavat tai niiden palauttaminen vaatii teknistä osaamista.</li>
+  <li><strong>Kaasumaksut väärässä tokenissa:</strong> jokainen verkko vaatii siirtoihin sen oman „polttoaineensa” (kaasun). Ethereumissa maksat ETH:lla, Solanassa SOL:lla, Polygonissa POL:lla. Jos sinulla on tokeneita verkossa mutta ei lainkaan sen verkon natiivitokenia kaasuun, et voi liikuttaa mitään.</li>
+</ul>
+
+<p>Ennen jokaista siirtoa varmista siis kaksi asiaa: <strong>1)</strong> millä verkolla token on ja mille verkolle olet lähettämässä, ja <strong>2)</strong> onko sinulla kohde-verkon natiivitokenia kaasumaksuihin. Lompakko näyttää aktiivisen verkon yleensä yläreunassa – tarkista se aina.</p>
+
+<div class="laatikko laatikko--vinkki">
+  <div class="laatikko__otsikko">💡 Pieni puskuri kaasua joka verkkoon</div>
+  <p>Kun alat käyttää uutta verkkoa, pidä siellä aina pieni määrä natiivitokenia (esim. muutaman euron edestä ETH:ta Arbitrumissa). Ilman kaasua et voi tehdä mitään, et edes siirtää muita tokeneitasi pois.</p>
+</div>
+
+<h2 id="revoke">Revoke.cash – kerran kuussa</h2>
+
+<p>Kun käytät sovelluksia (DeFi-palveluita, NFT-kauppapaikkoja, pörssejä ketjulla), annat niille usein <strong>käyttöoikeuksia</strong> (approvals) tokeneihisi. Tämä on välttämätöntä – esimerkiksi vaihtaaksesi USDC:tä pörssissä ketjulla, annat palvelulle luvan käsitellä USDC:täsi. Ongelma on, että monet näistä luvista ovat <strong>rajattomia ja pysyviä</strong>: palvelu voi käsitellä tokeneitasi loputtomiin, kunnes itse peruutat luvan.</p>
+
+<p>Jos annoit joskus luvan palvelulle, joka myöhemmin osoittautuu haavoittuvaksi tai huijaukseksi, hyökkääjä voi käyttää tuota vanhaa lupaa varastaakseen tokeneitasi – vaikka et olisi käyttänyt palvelua vuosiin. Tämä on aiheuttanut suuria menetyksiä.</p>
+
+<p><strong>Revoke.cash</strong> on ilmainen työkalu, jolla näet kaikki antamasi käyttöoikeudet ja voit peruuttaa ne. Käytäntö:</p>
+
+<ol class="askeleet">
+  <li><b>Mene osoitteeseen revoke.cash</b>Varmista että osoite on oikea (varo väärennöksiä hakukoneiden mainoksissa – kirjoita osoite itse tai käytä tallennettua kirjanmerkkiä).</li>
+  <li><b>Yhdistä lompakkosi ja valitse verkko</b>Voit tarkastella lupia verkko kerrallaan. Käy läpi verkot joita olet käyttänyt.</li>
+  <li><b>Käy luvat läpi ja peruuta tarpeettomat</b>Peruuta erityisesti rajattomat luvat palveluihin joita et enää käytä. Jokainen peruutus on oma siirtonsa ja maksaa hieman kaasua.</li>
+</ol>
+
+<p>Tee tämä tarkistus <strong>noin kerran kuussa</strong> ja aina sen jälkeen kun olet käyttänyt uutta tai epävarmaa palvelua. Se on kuin kotisi lukkojen säännöllinen tarkistus – nopea rutiini, joka estää suuria ongelmia.</p>
+
+<h2 id="spl">SPL-token-tilit ja Sol Incinerator</h2>
+
+<p>Tämä osio koskee erityisesti <strong>Solana-verkkoa</strong>, jossa tokenit toimivat hieman eri tavalla kuin Ethereumissa. Solanassa jokainen token, jota omistat, tarvitsee oman <strong>token-tilin</strong> (SPL token account). Kun vastaanotat uuden tokenin ensimmäistä kertaa, verkko luo sille pienen tilin – ja tämän tilin ylläpito vaatii pienen määrän SOL:ia lukittuna „vuokrana” (rent), tyypillisesti noin 0,002 SOL per tili.</p>
+
+<p>Mitä tästä seuraa? Ajan myötä, kun olet vastaanottanut kymmeniä eri tokeneita – mukaan lukien kaikenlaista roskaa ja huijaustokeneita joita lähetetään lompakkoosi kutsumatta – sinulla voi olla kymmeniä tyhjiä tai arvottomia token-tilejä, joihin on lukittuna SOL:ia. Tämä SOL on <strong>sinun</strong>, ja voit saada sen takaisin sulkemalla tarpeettomat tilit.</p>
+
+<p><strong>Sol Incinerator</strong> on työkalu, joka etsii lompakostasi tyhjät ja arvottomat token-tilit ja sulkee ne, palauttaen niihin lukitun SOL:in takaisin sinulle. Se on kuin siivota vanhat, tyhjät laatikot ja saada takaisin niiden vuokra. Useiden tilien sulkeminen voi palauttaa yllättävän määrän SOL:ia.</p>
+
+<div class="laatikko laatikko--varo">
+  <div class="laatikko__otsikko">⚠️ Käytä vain virallista työkalua ja tarkista mitä poltat</div>
+  <p>Varmista että käytät aitoa Sol Incinerator -sovellusta (tarkista osoite huolella). Sulje vain tilit, joissa on arvottomia tai tuntemattomia tokeneita – älä vahingossa polta tilejä joissa on oikeaa arvoa. Työkalu yleensä näyttää mitä ollaan sulkemassa – lue se läpi ennen vahvistusta.</p>
+</div>
+
+<h2 id="huijaustokenit">Älä myy tuntemattomia tokeneita</h2>
+
+<p>Tämä on yksi tärkeimmistä turvasäännöistä, ja se yllättää monet. Aika ajoin lompakkoosi ilmestyy tokeneita, joita <strong>et ole itse hankkinut</strong>. Joku on lähettänyt niitä sinulle kutsumatta. Näillä saattaa näyttää olevan jokin arvo, ja houkutus on yrittää myydä ne rahaksi. <strong>Älä tee sitä</strong>, ellet ole täysin varma tokenin alkuperästä.</p>
+
+<p>Miksi? Nämä ovat usein <strong>ansoja</strong>. Yleisiä mekanismeja:</p>
+
+<ul>
+  <li><strong>Myrkytetty token:</strong> kun yrität myydä tai vaihtaa tokenin, sinut ohjataan huijaussivustolle, joka pyytää allekirjoittamaan siirron. Allekirjoitus antaakin hyökkääjälle luvan tyhjentää lompakkosi – ei myydä sitä yhtä tokenia.</li>
+  <li><strong>Honeypot:</strong> tokenin voi ostaa mutta ei myydä – koodi estää myymisen. Jos yrität „pelastaa” arvon vaihtamalla, menetät vain kaasua ja mahdollisesti enemmän.</li>
+  <li><strong>Vuorovaikutuksen houkuttelu:</strong> jo pelkästään tokenin kanssa vuorovaikuttaminen (approve, swap) voi altistaa lompakkosi haitalliselle sopimukselle.</li>
+</ul>
+
+<p>Oikea toimintatapa tuntemattoman tokenin kanssa on <strong>olla tekemättä mitään</strong>. Älä klikkaa sitä, älä yritä myydä, älä mene mille tahansa sivustolle jonka nimi tokenissa lukee. Voit yksinkertaisesti piilottaa tokenin lompakon näkymästä, tai Solanassa sulkea sen tilin Sol Incineratorilla (mikä myös palauttaa rentin). Anna sen vain olla – pelkästään lompakossa istuva roskatokeni ei voi vahingoittaa sinua, vain sen kanssa toimiminen voi.</p>
+
+<div class="laatikko laatikko--vaara">
+  <div class="laatikko__otsikko">⚠️ Kultainen sääntö</div>
+  <p>Jos et itse hankkinut tokenia etkä tunne sen alkuperää, käsittele sitä kuin tuntematonta pakettia postilaatikossa – älä avaa, älä koske, älä vie sitä minnekään. Pelkkä sen olemassaolo lompakossa ei ole vaarallista; vaarallista on toimia sen kanssa.</p>
+</div>
+
+<h2 id="muistilista">Turvallisuuden muistilista</h2>
+
+<p>Kokoa nämä rutiineiksi, niin vältät suurimman osan menetyksistä:</p>
+
+<ul>
+  <li>✅ Tee aina <strong>testisiirto</strong> ennen suurta siirtoa uuteen osoitteeseen.</li>
+  <li>✅ Kopioi osoitteet luotettavasta lähteestä, <strong>ei koskaan explorerin historiasta</strong>. Tarkista myös osoitteen keskikohta.</li>
+  <li>✅ Varmista aina <strong>verkko</strong> ja pidä pieni puskuri natiivitokenia kaasuun.</li>
+  <li>✅ Aja <strong>revoke.cash</strong> noin kerran kuussa ja peruuta tarpeettomat luvat.</li>
+  <li>✅ Solanassa siivoa <strong>tyhjät token-tilit</strong> Sol Incineratorilla ja saa rent takaisin.</li>
+  <li>✅ <strong>Älä koskaan koske</strong> tuntemattomiin tokeneihin joita et ole itse hankkinut.</li>
+</ul>
+
+<p>Nämä tavat erottavat kokeneen käyttäjän aloittelijasta. Ne eivät vaadi teknistä osaamista – pelkkää huolellisuutta ja rutiinia. Seuraavaksi asennetaan ensimmäinen lompakko käytännössä: MetaMask.</p>
+    </div>
+    <div class="vastuuvapaus">
+  <strong>Huomio:</strong> Tämä sisältö on koulutusta, ei sijoitusneuvontaa. Kryptovaluutat ovat erittäin riskialttiita ja voit menettää koko sijoituksesi. Tee aina oma tutkimuksesi (DYOR) ja vastaa itse päätöksistäsi. Kirjoittaja ei vastaa mahdollisista tappioista.
+</div>
+    <div class="cta">
+  <h2>Seuraa Kryptokoulua</h2>
+  <p>Uudet oppaat, markkinahavainnot ja airdrop-vinkit ilmestyvät ensin somessa. Liity mukaan ja opettele yhdessä muiden kanssa.</p>
+  <div class="cta__napit">
+    <a href="https://x.com/Kryptokoulu" target="_blank" rel="noopener" class="nappi nappi--paa">Seuraa X:ssä</a>
+    <a href="https://www.tradingview.com/?aff_id=168670" target="_blank" rel="noopener" class="nappi nappi--reuna">Avaa TradingView</a>
+  </div>
+</div>
+    <nav class="artikkeli-navi">
+<a href="kryptolompakko.html"><span>← Edellinen</span><b>Mikä on kryptolompakko?</b></a>
+<a href="metamask.html" class="seur"><span>Seuraava →</span><b>MetaMaskin asennus</b></a>
+</nav>
+  </article>
+</main>
+<footer class="alatunniste">
+  <div class="wrap">
+    <div class="alatunniste__grid">
+      <div>
+        <a href="../index.html" class="logo alatunniste__logo">
+          <span class="logo__merkki">K</span> Kryptokoulu
+        </a>
+        <p>Selkeät suomenkieliset oppaat kryptovaluuttojen maailmaan. Oikeita käytäntöjä, ei teknistä hömppää. Opettele turvallisesti, askel kerrallaan.</p>
+      </div>
+      <div>
+        <h5>Oppaat</h5>
+        <ul>
+          <li><a href="kryptolompakko.html">Kryptolompakko</a></li>
+          <li><a href="metamask.html">MetaMask</a></li>
+          <li><a href="silloittaminen.html">Silloittaminen</a></li>
+          <li><a href="staking.html">Staking</a></li>
+          <li><a href="airdrop.html">Airdrop-farmaus</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Seuraa</h5>
+        <ul>
+          <li><a href="https://x.com/Kryptokoulu" target="_blank" rel="noopener">X / Twitter</a></li>
+          <li><a href="https://coinmarketcap.com/community/profile/krytokoulu/" target="_blank" rel="noopener">CoinMarketCap</a></li>
+          <li><a href="https://www.tradingview.com/?aff_id=168670" target="_blank" rel="noopener">TradingView</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="alatunniste__alaosa">
+      <span>© 2026 Kryptokoulu. Ei sijoitusneuvontaa.</span>
+      <div class="some-linkit">
+        <a href="https://x.com/Kryptokoulu" target="_blank" rel="noopener">X</a>
+        <a href="https://coinmarketcap.com/community/profile/krytokoulu/" target="_blank" rel="noopener">CMC</a>
+        <a href="https://www.tradingview.com/?aff_id=168670" target="_blank" rel="noopener">TradingView</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Kryptolompakon turvallisuus",
+  "description": "Varojen siirto pörssistä, ketjun tarkistus, revoke.cash, SPL-tilit ja yleisimmät ansat.",
+  "author": { "@type": "Organization", "name": "Kryptokoulu" },
+  "publisher": { "@type": "Organization", "name": "Kryptokoulu" },
+  "inLanguage": "fi-FI",
+  "url": "https://kryptokoulu.github.io/kryptokoulu/artikkelit/lompakon-turvallisuus.html"
+}
+</script>
