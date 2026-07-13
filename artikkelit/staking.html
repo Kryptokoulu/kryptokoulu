@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Staking eri palveluissa | Kryptokoulu</title>
+<meta name="description" content="Aave, Aerodrome, Jupiter, Hylo, Virtuals — miksi ja miten stakataan, ja mitä tapoja on olemassa.">
+<meta name="keywords" content="staking, Aave, Aerodrome, Jupiter, DeFi tuotto, krypto staking suomeksi">
+<meta name="author" content="Kryptokoulu">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://kryptokoulu.github.io/kryptokoulu/artikkelit/staking.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Staking eri palveluissa | Kryptokoulu">
+<meta property="og:description" content="Aave, Aerodrome, Jupiter, Hylo, Virtuals — miksi ja miten stakataan, ja mitä tapoja on olemassa.">
+<meta property="og:url" content="https://kryptokoulu.github.io/kryptokoulu/artikkelit/staking.html">
+<meta property="og:site_name" content="Kryptokoulu">
+<meta property="og:locale" content="fi_FI">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@Kryptokoulu">
+<meta name="twitter:title" content="Staking eri palveluissa | Kryptokoulu">
+<meta name="twitter:description" content="Aave, Aerodrome, Jupiter, Hylo, Virtuals — miksi ja miten stakataan, ja mitä tapoja on olemassa.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/tyyli.css">
+</head>
+<body>
+
+<nav class="navi">
+  <div class="navi__sisalto">
+    <a href="../index.html" class="logo">
+      <span class="logo__merkki">K</span> Kryptokoulu
+    </a>
+    <div class="navi__linkit" id="navilinkit">
+      <a href="../index.html#aloittelija">Aloittelija</a>
+      <a href="../index.html#edistynyt">Edistynyt</a>
+      <a href="../index.html#tietoa">Tietoa</a>
+      <a href="https://www.tradingview.com/?aff_id=168670" target="_blank" rel="noopener">TradingView</a>
+    </div>
+    <button class="navi-nappi" onclick="document.getElementById('navilinkit').classList.toggle('auki')" aria-label="Valikko">☰</button>
+  </div>
+</nav>
+
+<main class="artikkeli">
+  <article class="artikkeli__wrap">
+    <nav class="murupolku">
+      <a href="../index.html">Etusivu</a> <span>/</span>
+      <a href="../index.html#edistynyt">Edistynyt</a> <span>/</span>
+      <span>Staking eri palveluissa</span>
+    </nav>
+    <div class="artikkeli__meta">
+      <span class="merkki merkki--edist">Edistynyt</span>
+      <span class="lukuaika">⏱ 15 min lukuaika</span>
+    </div>
+    <h1>Staking eri palveluissa</h1>
+    <p class="artikkeli__ingressi">Staking on yksi yleisimmistä tavoista ansaita tuottoa kryptovaroilla ilman aktiivista kaupankäyntiä. Mutta „staking” tarkoittaa itse asiassa montaa eri asiaa, ja on tärkeää ymmärtää miten kukin muoto toimii ja mitä riskejä siihen liittyy. Tässä oppaassa käydään läpi miksi ja miten stakataan, mitä eri tapoja on olemassa, ja esitellään konkreettisia palveluita kuten Aave, Aerodrome, Jupiter, Hylo ja Virtuals – sekä se, mitä jokaisessa oikeasti tapahtuu varoillesi.</p>
+    <nav class="sisallys">
+      <h2>Sisällys</h2>
+      <ol>
+          <li><a href="#mika">Mitä staking tarkoittaa</a></li>
+          <li><a href="#miksi">Miksi stakata</a></li>
+          <li><a href="#muodot">Eri muodot: mitä ne oikeasti ovat</a></li>
+          <li><a href="#palvelut">Palvelut käytännössä</a></li>
+          <li><a href="#riskit">Riskit joita ei saa unohtaa</a></li>
+          <li><a href="#miten">Miten pääset alkuun</a></li>
+          <li><a href="#yhteenveto">Yhteenveto</a></li>
+      </ol>
+    </nav>
+    <div class="sisalto">
+<h2 id="mika">Mitä staking tarkoittaa</h2>
+
+<p>Sana „staking” on kryptomaailmassa venynyt tarkoittamaan hyvin monenlaisia asioita, mikä aiheuttaa sekaannusta. Alkuperäisessä merkityksessään staking tarkoittaa tokenien lukitsemista <strong>lohkoketjun toiminnan turvaamiseksi</strong> – monet verkot (ns. proof-of-stake-verkot) toimivat niin, että käyttäjät lukitsevat tokeneitaan verkon turvaamiseen ja saavat vastineeksi palkkioita.</p>
+
+<p>Mutta arkikielessä „stakingilla” viitataan usein mihin tahansa tapaan, jossa <strong>lukitset tai talletat tokeneita ja saat vastineeksi tuottoa</strong>. Tähän kuuluu monta hyvin erilaista mekanismia, joilla on hyvin erilaiset riskit. Siksi on tärkeää aina kysyä: <em>mitä varoilleni oikeasti tapahtuu, ja mistä tuotto tulee?</em></p>
+
+<div class="laatikko laatikko--vinkki">
+  <div class="laatikko__otsikko">💡 Kysy aina kaksi kysymystä</div>
+  <p>Ennen kuin stakkaat mihinkään: <strong>1)</strong> Mistä tuotto oikeasti syntyy? <strong>2)</strong> Mitä riskejä varoihini kohdistuu (voinko menettää osan, onko lukitusaikaa, voiko palvelu kaatua)? Jos et saa selkeää vastausta kumpaankaan, älä stakkaa.</p>
+</div>
+
+<h2 id="miksi">Miksi stakata</h2>
+
+<p>Stakingin idea on saada omistuksille tuottoa sen sijaan että ne vain istuvat lompakossa. Jos aiot joka tapauksessa pitää tiettyjä tokeneita pitkään, staking voi tuottaa niille lisäarvoa. Tyypillisiä syitä:</p>
+
+<ul>
+  <li><strong>Passiivinen tuotto:</strong> ansaitset palkkioita ilman aktiivista kaupankäyntiä.</li>
+  <li><strong>Verkon tukeminen:</strong> aidossa proof-of-stake-stakingissa autat turvaamaan lohkoketjua.</li>
+  <li><strong>Pitkän aikavälin omistus:</strong> jos uskot tokeniin pitkällä aikavälillä, staking voi kerryttää lisää sitä samaa tokenia.</li>
+</ul>
+
+<p>Tärkeää on kuitenkin muistaa, että tuotto ei ole ilmaista. Se on aina korvausta jostakin – riskistä, lukituksesta, tai palvelun tarjoamisesta. Mitä korkeampi luvattu tuotto, sitä tarkemmin kannattaa selvittää mistä se tulee.</p>
+
+<h2 id="muodot">Eri muodot: mitä ne oikeasti ovat</h2>
+
+<p>Käydään läpi yleisimmät „stakingiksi” kutsutut mekanismit ja se, mitä ne todella ovat:</p>
+
+<h3>1. Aito proof-of-stake-staking</h3>
+<p>Lukitset verkon natiivitokenia (esim. verkon omaa tokenia) turvaamaan lohkoketjua. Palkkio tulee verkon inflaatiosta ja transaktiomaksuista. Riski: joissakin verkoissa on „slashing” (osa panoksesta voidaan menettää jos validaattori toimii väärin), ja usein on lukitus- tai vapautusaika.</p>
+
+<h3>2. Liquid staking</h3>
+<p>Stakkaat tokenin, mutta saat vastineeksi „nestemäisen” version siitä (esim. stakattua ETH:ta edustava token), jota voit käyttää muualla samalla kun alkuperäinen tuottaa staking-palkkioita. Järkevää mutta lisää monimutkaisuutta ja älykontrahtiriskiä.</p>
+
+<h3>3. Lending (lainaaminen)</h3>
+<p>Talletat tokeneita alustalle, joka lainaa niitä eteenpäin korkoa vastaan. Sinä saat osan korosta. Tätä kutsutaan usein arkikielessä stakingiksi, vaikka kyse on lainaamisesta. Riski: lainanottajien maksukyky, alustan vakavaraisuus, älykontrahtiriski.</p>
+
+<h3>4. Likviditeetin tarjoaminen</h3>
+<p>Kuten edellisessä oppaassa: talletat token-pareja hajautettuun pörssiin ja ansaitset vaihtomaksuista. Tähän liittyy impermanent loss -riski. Tätäkin kutsutaan joskus stakingiksi.</p>
+
+<div class="laatikko laatikko--varo">
+  <div class="laatikko__otsikko">⚠️ Sama sana, eri riskit</div>
+  <p>Huomaa miten nämä neljä ovat täysin eri asioita, vaikka niitä kaikkia saatetaan kutsua „stakingiksi”. Aina kun näet sanan, selvitä mikä mekanismi on kyseessä ja mitä riskejä juuri siihen liittyy.</p>
+</div>
+
+<h2 id="palvelut">Palvelut käytännössä</h2>
+
+<p>Esitellään muutamia tunnettuja palveluita, joissa voi ansaita tuottoa eri mekanismeilla. Nämä ovat esimerkkejä oppimistarkoituksessa, eivät suosituksia – tee aina oma tutkimuksesi.</p>
+
+<h3>Aave</h3>
+<p>Aave on yksi tunnetuimmista <strong>lainausprotokollista</strong>. Voit tallettaa tokeneita ja ansaita korkoa siitä, että muut lainaavat niitä. Voit myös ottaa lainaa vakuutta vastaan. Talletetut varat tuottavat korkoa lainakysynnän mukaan. Kyse on siis lainaamisesta, ei perinteisestä stakingista.</p>
+
+<h3>Aerodrome</h3>
+<p>Aerodrome on hajautettu pörssi Base-verkossa, jossa voit tarjota <strong>likviditeettiä</strong> ja ansaita vaihtomaksuja sekä palkkiotokeneita. Tähän liittyy likviditeetin tarjoamisen riskit, mukaan lukien impermanent loss.</p>
+
+<h3>Jupiter</h3>
+<p>Jupiter on Solana-ekosysteemin tunnettu kaupankäyntialusta ja reitittäjä, jonka kautta voi päästä käsiksi erilaisiin tuottomahdollisuuksiin Solanassa. Solana-ekosysteemin palvelut hyödyntävät verkon nopeutta ja alhaisia maksuja.</p>
+
+<h3>Hylo</h3>
+<p>Hylo on esimerkki uudemmasta Solana-ekosysteemin protokollasta. Kuten kaikkien uudempien protokollien kohdalla, on erityisen tärkeää selvittää tarkkaan miten se toimii, kuinka vakiintunut se on ja mitä riskejä siihen liittyy ennen varojen sitomista.</p>
+
+<h3>Virtuals</h3>
+<p>Virtuals on esimerkki protokollasta, joka liittyy uudempiin kryptonarratiiveihin. Tällaisten kohdalla pätee erityinen varovaisuus: mitä uudempi ja kokeellisempi protokolla, sitä suurempi riski, ja sitä tarkempi tutkimus on tarpeen.</p>
+
+<div class="laatikko laatikko--varo">
+  <div class="laatikko__otsikko">⚠️ Uudempi = riskisempi</div>
+  <p>Vakiintuneet protokollat, joilla on pitkä historia ja auditoitu koodi, ovat lähtökohtaisesti turvallisempia kuin uudet, kokeelliset. Uudet protokollat voivat tarjota korkeampia tuottoja houkutellakseen pääomaa – mutta korkeampi tuotto heijastaa korkeampaa riskiä. Älä koskaan sido enempää kuin olet valmis menettämään.</p>
+</div>
+
+<h2 id="riskit">Riskit joita ei saa unohtaa</h2>
+
+<p>Staking ja tuottopalvelut eivät ole riskittömiä. Keskeisimmät riskit:</p>
+
+<ul>
+  <li><strong>Älykontrahtiriski:</strong> jos protokollan koodissa on virhe tai haavoittuvuus, varat voidaan menettää. Auditoitu koodi vähentää mutta ei poista tätä.</li>
+  <li><strong>Lukitusaika:</strong> osa stakingista lukitsee varat tietyksi ajaksi, jolloin et pääse niihin käsiksi vaikka markkina kääntyisi.</li>
+  <li><strong>Slashing:</strong> joissakin verkoissa osa panoksesta voidaan menettää jos validaattori toimii virheellisesti.</li>
+  <li><strong>Palvelun vakavaraisuus:</strong> lainausalustat ja tuottopalvelut voivat joutua vaikeuksiin, jos lainanottajat eivät maksa tai markkina romahtaa.</li>
+  <li><strong>Palkkiotokenin arvo:</strong> jos tuotto maksetaan epävakaassa palkkiotokenissa, sen arvo voi pudota ja todellinen tuotto jäädä luvattua pienemmäksi.</li>
+  <li><strong>Impermanent loss:</strong> likviditeettipohjaisessa tuotossa hintasuhteen muutos voi syödä tuoton.</li>
+</ul>
+
+<h2 id="miten">Miten pääset alkuun</h2>
+
+<ol class="askeleet">
+  <li><b>Aloita vakiintuneesta protokollasta</b>Valitse tunnettu, pitkään toiminut ja auditoitu palvelu ennemmin kuin uusin korkean tuoton lupaaja.</li>
+  <li><b>Ymmärrä mekanismi ja riskit</b>Selvitä mistä tuotto tulee ja mitä riskejä juuri tähän muotoon liittyy. Älä sitoudu jos et ymmärrä.</li>
+  <li><b>Tarkista lukitusehdot</b>Selvitä onko varoilla lukitusaikaa ja miten ja milloin pääset niihin käsiksi.</li>
+  <li><b>Aloita pienellä summalla</b>Kokeile ensin pienellä, seuraa miten palkkiot kertyvät ja miten palvelu toimii, ennen kuin sitoudut isommin.</li>
+  <li><b>Muista turvallisuus</b>Käytä luotettavia sivustoja, tarkista osoitteet, älä anna rajattomia lupia tarpeettomasti ja aja revoke.cash säännöllisesti.</li>
+</ol>
+
+<h2 id="yhteenveto">Yhteenveto</h2>
+
+<ul>
+  <li>✅ <strong>Staking</strong> tarkoittaa montaa eri asiaa – aitoa proof-of-stakea, liquid stakingia, lainaamista ja likviditeetin tarjoamista.</li>
+  <li>✅ Kysy aina: <strong>mistä tuotto tulee</strong> ja <strong>mitä riskejä</strong> juuri tähän muotoon liittyy.</li>
+  <li>✅ Palvelut kuten <strong>Aave</strong> (lainaus), <strong>Aerodrome</strong> (likviditeetti), <strong>Jupiter</strong> ja Solana-protokollat tarjoavat eri mekanismeja.</li>
+  <li>⚠️ <strong>Uudemmat protokollat</strong> (kuten Hylo, Virtuals) ovat riskisempiä – tee tarkka tutkimus.</li>
+  <li>✅ Muista älykontrahtiriski, lukitusajat ja aloita <strong>pienellä</strong>.</li>
+</ul>
+
+<p>Seuraavaksi käsitellään vivutusta – yhtä kryptomaailman riskisimmistä työkaluista – rehellisesti ja riskit edellä, sekä sitä miten tekninen analyysi (RSI ja MACD) voi auttaa osto- ja myyntipisteiden hahmottamisessa.</p>
+    </div>
+    <div class="vastuuvapaus">
+  <strong>Huomio:</strong> Tämä sisältö on koulutusta, ei sijoitusneuvontaa. Kryptovaluutat ovat erittäin riskialttiita ja voit menettää koko sijoituksesi. Tee aina oma tutkimuksesi (DYOR) ja vastaa itse päätöksistäsi. Kirjoittaja ei vastaa mahdollisista tappioista.
+</div>
+    <div class="cta">
+  <h2>Seuraa Kryptokoulua</h2>
+  <p>Uudet oppaat, markkinahavainnot ja airdrop-vinkit ilmestyvät ensin somessa. Liity mukaan ja opettele yhdessä muiden kanssa.</p>
+  <div class="cta__napit">
+    <a href="https://x.com/Kryptokoulu" target="_blank" rel="noopener" class="nappi nappi--paa">Seuraa X:ssä</a>
+    <a href="https://www.tradingview.com/?aff_id=168670" target="_blank" rel="noopener" class="nappi nappi--reuna">Avaa TradingView</a>
+  </div>
+</div>
+    <nav class="artikkeli-navi">
+<a href="likviditeetti.html"><span>← Edellinen</span><b>Likviditeetti ja impermanent loss</b></a>
+<a href="vivutus.html" class="seur"><span>Seuraava →</span><b>Vivutus: long ja short</b></a>
+</nav>
+  </article>
+</main>
+<footer class="alatunniste">
+  <div class="wrap">
+    <div class="alatunniste__grid">
+      <div>
+        <a href="../index.html" class="logo alatunniste__logo">
+          <span class="logo__merkki">K</span> Kryptokoulu
+        </a>
+        <p>Selkeät suomenkieliset oppaat kryptovaluuttojen maailmaan. Oikeita käytäntöjä, ei teknistä hömppää. Opettele turvallisesti, askel kerrallaan.</p>
+      </div>
+      <div>
+        <h5>Oppaat</h5>
+        <ul>
+          <li><a href="kryptolompakko.html">Kryptolompakko</a></li>
+          <li><a href="metamask.html">MetaMask</a></li>
+          <li><a href="silloittaminen.html">Silloittaminen</a></li>
+          <li><a href="staking.html">Staking</a></li>
+          <li><a href="airdrop.html">Airdrop-farmaus</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Seuraa</h5>
+        <ul>
+          <li><a href="https://x.com/Kryptokoulu" target="_blank" rel="noopener">X / Twitter</a></li>
+          <li><a href="https://coinmarketcap.com/community/profile/krytokoulu/" target="_blank" rel="noopener">CoinMarketCap</a></li>
+          <li><a href="https://www.tradingview.com/?aff_id=168670" target="_blank" rel="noopener">TradingView</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="alatunniste__alaosa">
+      <span>© 2026 Kryptokoulu. Ei sijoitusneuvontaa.</span>
+      <div class="some-linkit">
+        <a href="https://x.com/Kryptokoulu" target="_blank" rel="noopener">X</a>
+        <a href="https://coinmarketcap.com/community/profile/krytokoulu/" target="_blank" rel="noopener">CMC</a>
+        <a href="https://www.tradingview.com/?aff_id=168670" target="_blank" rel="noopener">TradingView</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Staking eri palveluissa",
+  "description": "Aave, Aerodrome, Jupiter, Hylo, Virtuals — miksi ja miten stakataan, ja mitä tapoja on olemassa.",
+  "author": { "@type": "Organization", "name": "Kryptokoulu" },
+  "publisher": { "@type": "Organization", "name": "Kryptokoulu" },
+  "inLanguage": "fi-FI",
+  "url": "https://kryptokoulu.github.io/kryptokoulu/artikkelit/staking.html"
+}
+</script>
