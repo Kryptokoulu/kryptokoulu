@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MetaMaskin asennus | Kryptokoulu</title>
+<meta name="description" content="Asennus alusta loppuun, seed paperille, testnet käyttöön ja Chainlist-palvelu.">
+<meta name="keywords" content="MetaMask asennus, MetaMask suomeksi, testnet, Chainlist, kryptolompakko opas">
+<meta name="author" content="Kryptokoulu">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://kryptokoulu.github.io/kryptokoulu/artikkelit/metamask.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="MetaMaskin asennus | Kryptokoulu">
+<meta property="og:description" content="Asennus alusta loppuun, seed paperille, testnet käyttöön ja Chainlist-palvelu.">
+<meta property="og:url" content="https://kryptokoulu.github.io/kryptokoulu/artikkelit/metamask.html">
+<meta property="og:site_name" content="Kryptokoulu">
+<meta property="og:locale" content="fi_FI">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@Kryptokoulu">
+<meta name="twitter:title" content="MetaMaskin asennus | Kryptokoulu">
+<meta name="twitter:description" content="Asennus alusta loppuun, seed paperille, testnet käyttöön ja Chainlist-palvelu.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/tyyli.css">
+</head>
+<body>
+
+<nav class="navi">
+  <div class="navi__sisalto">
+    <a href="../index.html" class="logo">
+      <span class="logo__merkki">K</span> Kryptokoulu
+    </a>
+    <div class="navi__linkit" id="navilinkit">
+      <a href="../index.html#aloittelija">Aloittelija</a>
+      <a href="../index.html#edistynyt">Edistynyt</a>
+      <a href="../index.html#tietoa">Tietoa</a>
+      <a href="https://www.tradingview.com/?aff_id=168670" target="_blank" rel="noopener">TradingView</a>
+    </div>
+    <button class="navi-nappi" onclick="document.getElementById('navilinkit').classList.toggle('auki')" aria-label="Valikko">☰</button>
+  </div>
+</nav>
+
+<main class="artikkeli">
+  <article class="artikkeli__wrap">
+    <nav class="murupolku">
+      <a href="../index.html">Etusivu</a> <span>/</span>
+      <a href="../index.html#aloittelija">Aloittelija</a> <span>/</span>
+      <span>MetaMaskin asennus</span>
+    </nav>
+    <div class="artikkeli__meta">
+      <span class="merkki">Aloittelija</span>
+      <span class="lukuaika">⏱ 14 min lukuaika</span>
+    </div>
+    <h1>MetaMaskin asennus</h1>
+    <p class="artikkeli__ingressi">MetaMask on maailman käytetyin kryptolompakko ja loistava ensimmäinen lompakko. Tässä oppaassa asennetaan MetaMask alusta loppuun: seed paperille, ei koskaan seediä tai salasanaa digitaalisesti, miten vaihdat USD:n euroiksi, miten otat testnetin käyttöön harjoittelua varten ja miten Chainlist-palvelu auttaa lisäämään verkkoja turvallisesti.</p>
+    <nav class="sisallys">
+      <h2>Sisällys</h2>
+      <ol>
+          <li><a href="#mika">Mikä MetaMask on</a></li>
+          <li><a href="#asennus">Asennus askel askeleelta</a></li>
+          <li><a href="#seed">Seed talteen – oikein</a></li>
+          <li><a href="#valuutta">USD euroiksi näytöllä</a></li>
+          <li><a href="#testnet">Testnetin käyttöönotto</a></li>
+          <li><a href="#chainlist">Chainlist – verkkojen lisääminen turvallisesti</a></li>
+          <li><a href="#valmis">Valmista – mitä seuraavaksi</a></li>
+      </ol>
+    </nav>
+    <div class="sisalto">
+<h2 id="mika">Mikä MetaMask on</h2>
+
+<p>MetaMask on ilmainen kuumalompakko, joka toimii selainlaajennuksena (Chrome, Firefox, Brave, Edge) ja puhelinsovelluksena (iOS ja Android). Se tukee Ethereumia ja kaikkia sen kanssa yhteensopivia verkkoja – niitä kutsutaan <strong>EVM-verkoiksi</strong> (Ethereum Virtual Machine). Näitä ovat esimerkiksi Arbitrum, Base, Optimism, Polygon ja lukuisat muut. Yhdellä MetaMask-lompakolla pääset siis käsiksi valtavaan määrään sovelluksia ja verkkoja.</p>
+
+<p>MetaMask on hyvä ensimmäinen valinta, koska se on eniten tuettu – lähes jokainen sovellus toimii sen kanssa. Se ei kuitenkaan tue kaikkia ketjuja: esimerkiksi Solana toimii omalla lompakollaan (Phantom), johon palataan myöhemmissä oppaissa.</p>
+
+<div class="laatikko laatikko--varo">
+  <div class="laatikko__otsikko">⚠️ Lataa vain virallisesta lähteestä</div>
+  <p>Asenna MetaMask <strong>vain</strong> viralliselta sivustolta <code>metamask.io</code> tai laitteesi virallisesta sovelluskaupasta. Hakukoneiden mainoksissa ja väärennössivustoilla liikkuu paljon huijaus-MetaMaskeja, jotka varastavat seedin heti. Kirjoita osoite itse tai etsi laajennus suoraan selaimen viralliselta laajennussivulta.</p>
+</div>
+
+<h2 id="asennus">Asennus askel askeleelta</h2>
+
+<ol class="askeleet">
+  <li><b>Lataa MetaMask virallisesta lähteestä</b>Mene osoitteeseen metamask.io ja valitse selaimesi, tai lataa sovellus App Storesta / Google Playstä. Varmista että kehittäjä on „MetaMask” (ConsenSys).</li>
+  <li><b>Valitse „Luo uusi lompakko”</b>Ensiasennuksessa valitset uuden lompakon luomisen (et palauttamista). Hyväksy käyttöehdot.</li>
+  <li><b>Aseta vahva salasana</b>Tämä salasana suojaa lompakkoa <em>tällä laitteella</em> – se ei ole sama asia kuin seed. Salasana lukitsee sovelluksen, mutta jos joku saa seedin, salasana ei auta. Käytä silti vahvaa, uniikkia salasanaa.</li>
+  <li><b>Ota seed-lause talteen (tärkein vaihe)</b>MetaMask näyttää 12 sanan seed-lauseen. Tämä on lompakkosi pääavain. Kirjoita se paperille – tästä kokonainen osio alla.</li>
+  <li><b>Vahvista seed</b>MetaMask pyytää syöttämään sanat takaisin varmistaakseen että kirjoitit ne oikein. Tämä tehdään vain tässä aidossa asennusnäkymässä.</li>
+  <li><b>Valmis</b>Lompakko on käytössä. Näet Ethereum-osoitteesi yläosassa – tämän voit jakaa vastaanottaaksesi varoja.</li>
+</ol>
+
+<h2 id="seed">Seed talteen – oikein</h2>
+
+<p>Tämä on koko lompakon tärkein hetki, joten käydään se huolella. MetaMask näyttää sinulle 12 sanaa. Näiden sanojen kanssa kuka tahansa voi ottaa lompakkosi haltuun millä tahansa laitteella. Ilman niitä et itsekään saa lompakkoasi takaisin jos laite hajoaa.</p>
+
+<ol class="askeleet">
+  <li><b>Kirjoita sanat paperille käsin</b>Ota kynä ja paperi. Kirjoita kaikki 12 sanaa <strong>numeroituna</strong> täsmälleen oikeassa järjestyksessä. Tarkista oikeinkirjoitus – jokainen sana on merkitsevä.</li>
+  <li><b>Tee kaksi kopiota</b>Kirjoita seed kahdelle erilliselle paperille ja säilö ne <strong>eri fyysisissä paikoissa</strong>. Jos toinen tuhoutuu (tulipalo, vesivahinko), toinen säilyy.</li>
+  <li><b>Harkitse metallista varmuuskopiota</b>Suuremmille summille hanki teräksinen seed-levy. Paperi tuhoutuu tulessa ja vedessä – teräs kestää.</li>
+</ol>
+
+<div class="laatikko laatikko--vaara">
+  <div class="laatikko__otsikko">⚠️ Ei koskaan digitaalisesti</div>
+  <p>Älä <strong>koskaan</strong> tallenna seed-lausetta tai salasanaa digitaalisessa muodossa: ei kuvakaappauksena, ei muistiinpanoihin, ei sähköpostiin, ei pilveen, ei tekstiviestiin. Kaikki nettiin kytketty voidaan varastaa. Seed kuuluu vain paperille tai metalliin, jonka sinä fyysisesti hallitset.</p>
+</div>
+
+<h2 id="valuutta">USD euroiksi näytöllä</h2>
+
+<p>Oletuksena MetaMask näyttää varojesi arvon Yhdysvaltain dollareissa (USD). Suomalaisena haluat luultavasti nähdä arvot euroina. Tämä muutetaan asetuksista:</p>
+
+<ol class="askeleet">
+  <li><b>Avaa asetukset</b>Klikkaa valikkoa (kolme viivaa tai profiilikuvake) ja valitse „Settings” / „Asetukset”.</li>
+  <li><b>Mene kohtaan „General”</b>Etsi yleiset asetukset (General).</li>
+  <li><b>Vaihda ensisijainen valuutta euroksi</b>Kohdasta „Primary currency” tai „Currency conversion” valitse <strong>EUR</strong>. Nyt kaikki arvot näkyvät euroina.</li>
+</ol>
+
+<p>Huomaa, että tämä muuttaa vain <em>näyttövaluuttaa</em> – itse tokenit (kuten USDC-dollaristablecoin) pysyvät samoina, vain niiden arvo näytetään euroina laskettuna.</p>
+
+<h2 id="testnet">Testnetin käyttöönotto</h2>
+
+<p><strong>Testnet</strong> eli testiverkko on lohkoketjun harjoitteluversio, jossa tokenit ovat arvottomia – saat niitä ilmaiseksi ja voit harjoitella siirtoja, sovelluksia ja lompakon käyttöä <strong>ilman että riskeeraat oikeaa rahaa</strong>. Tämä on paras tapa oppia. Testnetissä tehty virhe ei maksa mitään.</p>
+
+<p>Uudemmissa MetaMask-versioissa testiverkot ovat piilotettuna oletuksena. Näin saat ne näkyviin:</p>
+
+<ol class="askeleet">
+  <li><b>Avaa verkkovalikko</b>Klikkaa yläosassa näkyvää verkon nimeä (esim. „Ethereum Mainnet”).</li>
+  <li><b>Salli testiverkot</b>Etsi asetuksista kohta „Show test networks” ja kytke se päälle. Nyt verkkolistassa näkyvät testiverkot kuten Sepolia.</li>
+  <li><b>Hae testitokeneita faucetista</b>Testitokeneita saa ilmaiseksi „faucet”-palveluista (hanasta). Hae verkkoa vastaava faucet, syötä osoitteesi ja saat testitokeneita muutamassa hetkessä.</li>
+  <li><b>Harjoittele vapaasti</b>Lähetä testitokeneita eri osoitteeseen, kokeile siirtoja ja opettele lompakon toiminta. Kaikki on ilmaista ja riskitöntä.</li>
+</ol>
+
+<div class="laatikko laatikko--vinkki">
+  <div class="laatikko__otsikko">💡 Harjoittele testnetissä ensin</div>
+  <p>Ennen kuin liikutat oikeaa rahaa, tee muutama siirto testnetissä. Näin opit miten osoitteen kopiointi, verkon valinta ja vahvistus toimivat – ilman että virhe maksaa mitään. Omistamme testiverkkoharjoittelulle myöhemmin kokonaisen oppaan.</p>
+</div>
+
+<h2 id="chainlist">Chainlist – verkkojen lisääminen turvallisesti</h2>
+
+<p>MetaMaskissa on valmiina vain muutama verkko. Kun haluat käyttää esimerkiksi Arbitrumia, Basea tai jotain muuta EVM-verkkoa, se pitää lisätä lompakkoon. Verkon voi lisätä käsin syöttämällä tekniset tiedot (RPC-osoite, ketju-ID, jne.), mutta se on työlästä ja virhealtista – ja vääristä RPC-tiedoista voi seurata ongelmia.</p>
+
+<p><strong>Chainlist</strong> (chainlist.org) on palvelu, joka helpottaa tätä. Se sisältää listan verkoista valmiiksi oikeilla asetuksilla, ja voit lisätä verkon lompakkoosi yhdellä klikkauksella.</p>
+
+<ol class="askeleet">
+  <li><b>Mene chainlist.org-sivustolle</b>Tarkista osoite huolellisesti. Yhdistä MetaMask-lompakkosi sivustoon.</li>
+  <li><b>Hae haluamasi verkko</b>Kirjoita hakuun esimerkiksi „Arbitrum” tai „Base”. Näet listan tuloksista.</li>
+  <li><b>Klikkaa „Add to MetaMask”</b>MetaMask kysyy vahvistusta verkon lisäämiseen. Tarkista tiedot ja hyväksy. Verkko on nyt käytössä.</li>
+</ol>
+
+<div class="laatikko laatikko--varo">
+  <div class="laatikko__otsikko">⚠️ Tarkista mitä lisäät</div>
+  <p>Lisää vain verkkoja, jotka tunnet ja tarvitset. Chainlist näyttää verkon tiedot ennen lisäämistä – lue ne. Vältä lisäämästä satunnaisia verkkoja, joita joku sivusto käskee lisätä, sillä haitallinen RPC voi näyttää vääristeltyä tietoa.</p>
+</div>
+
+<h2 id="valmis">Valmista – mitä seuraavaksi</h2>
+
+<p>Sinulla on nyt toimiva MetaMask-lompakko, seed turvassa paperilla, arvot euroina, testnet käytössä harjoittelua varten ja tieto miten lisätä verkkoja turvallisesti Chainlistin kautta. Tämä on vankka pohja.</p>
+
+<p>Muistilista:</p>
+<ul>
+  <li>✅ MetaMask asennettu <strong>vain virallisesta lähteestä</strong>.</li>
+  <li>✅ Seed kirjoitettu <strong>paperille, kaksi kopiota</strong>, ei koskaan digitaalisesti.</li>
+  <li>✅ Salasana on eri asia kuin seed – molemmat vahvoja.</li>
+  <li>✅ Näyttövaluutta vaihdettu euroiksi.</li>
+  <li>✅ Testnet käytössä riskitöntä harjoittelua varten.</li>
+  <li>✅ Verkot lisätään turvallisesti <strong>Chainlistin</strong> kautta.</li>
+</ul>
+
+<p>Seuraavaksi tutustutaan kolmeen muuhun lompakkoon eri tarpeisiin: Solana-natiiviin Phantomiin, monipuoliseen OKX:ään ja yksityisyyttä arvostavaan Enkryptiin.</p>
+    </div>
+    <div class="vastuuvapaus">
+  <strong>Huomio:</strong> Tämä sisältö on koulutusta, ei sijoitusneuvontaa. Kryptovaluutat ovat erittäin riskialttiita ja voit menettää koko sijoituksesi. Tee aina oma tutkimuksesi (DYOR) ja vastaa itse päätöksistäsi. Kirjoittaja ei vastaa mahdollisista tappioista.
+</div>
+    <div class="cta">
+  <h2>Seuraa Kryptokoulua</h2>
+  <p>Uudet oppaat, markkinahavainnot ja airdrop-vinkit ilmestyvät ensin somessa. Liity mukaan ja opettele yhdessä muiden kanssa.</p>
+  <div class="cta__napit">
+    <a href="https://x.com/Kryptokoulu" target="_blank" rel="noopener" class="nappi nappi--paa">Seuraa X:ssä</a>
+    <a href="https://www.tradingview.com/?aff_id=168670" target="_blank" rel="noopener" class="nappi nappi--reuna">Avaa TradingView</a>
+  </div>
+</div>
+    <nav class="artikkeli-navi">
+<a href="lompakon-turvallisuus.html"><span>← Edellinen</span><b>Kryptolompakon turvallisuus</b></a>
+<a href="muut-lompakot.html" class="seur"><span>Seuraava →</span><b>Phantom, OKX ja Enkrypt</b></a>
+</nav>
+  </article>
+</main>
+<footer class="alatunniste">
+  <div class="wrap">
+    <div class="alatunniste__grid">
+      <div>
+        <a href="../index.html" class="logo alatunniste__logo">
+          <span class="logo__merkki">K</span> Kryptokoulu
+        </a>
+        <p>Selkeät suomenkieliset oppaat kryptovaluuttojen maailmaan. Oikeita käytäntöjä, ei teknistä hömppää. Opettele turvallisesti, askel kerrallaan.</p>
+      </div>
+      <div>
+        <h5>Oppaat</h5>
+        <ul>
+          <li><a href="kryptolompakko.html">Kryptolompakko</a></li>
+          <li><a href="metamask.html">MetaMask</a></li>
+          <li><a href="silloittaminen.html">Silloittaminen</a></li>
+          <li><a href="staking.html">Staking</a></li>
+          <li><a href="airdrop.html">Airdrop-farmaus</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Seuraa</h5>
+        <ul>
+          <li><a href="https://x.com/Kryptokoulu" target="_blank" rel="noopener">X / Twitter</a></li>
+          <li><a href="https://coinmarketcap.com/community/profile/krytokoulu/" target="_blank" rel="noopener">CoinMarketCap</a></li>
+          <li><a href="https://www.tradingview.com/?aff_id=168670" target="_blank" rel="noopener">TradingView</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="alatunniste__alaosa">
+      <span>© 2026 Kryptokoulu. Ei sijoitusneuvontaa.</span>
+      <div class="some-linkit">
+        <a href="https://x.com/Kryptokoulu" target="_blank" rel="noopener">X</a>
+        <a href="https://coinmarketcap.com/community/profile/krytokoulu/" target="_blank" rel="noopener">CMC</a>
+        <a href="https://www.tradingview.com/?aff_id=168670" target="_blank" rel="noopener">TradingView</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "MetaMaskin asennus",
+  "description": "Asennus alusta loppuun, seed paperille, testnet käyttöön ja Chainlist-palvelu.",
+  "author": { "@type": "Organization", "name": "Kryptokoulu" },
+  "publisher": { "@type": "Organization", "name": "Kryptokoulu" },
+  "inLanguage": "fi-FI",
+  "url": "https://kryptokoulu.github.io/kryptokoulu/artikkelit/metamask.html"
+}
+</script>
