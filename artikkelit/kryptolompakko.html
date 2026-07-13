@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mikä on kryptolompakko? | Kryptokoulu</title>
+<meta name="description" content="Seed-lause, julkinen ja yksityinen avain, ja miksi kylmä- ja kuumalompakko eroavat toisistaan.">
+<meta name="keywords" content="kryptolompakko, seed-lause, yksityinen avain, julkinen avain, kylmälompakko, kuumalompakko, krypto suomeksi">
+<meta name="author" content="Kryptokoulu">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://kryptokoulu.github.io/kryptokoulu/artikkelit/kryptolompakko.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mikä on kryptolompakko? | Kryptokoulu">
+<meta property="og:description" content="Seed-lause, julkinen ja yksityinen avain, ja miksi kylmä- ja kuumalompakko eroavat toisistaan.">
+<meta property="og:url" content="https://kryptokoulu.github.io/kryptokoulu/artikkelit/kryptolompakko.html">
+<meta property="og:site_name" content="Kryptokoulu">
+<meta property="og:locale" content="fi_FI">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@Kryptokoulu">
+<meta name="twitter:title" content="Mikä on kryptolompakko? | Kryptokoulu">
+<meta name="twitter:description" content="Seed-lause, julkinen ja yksityinen avain, ja miksi kylmä- ja kuumalompakko eroavat toisistaan.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/tyyli.css">
+</head>
+<body>
+
+<nav class="navi">
+  <div class="navi__sisalto">
+    <a href="../index.html" class="logo">
+      <span class="logo__merkki">K</span> Kryptokoulu
+    </a>
+    <div class="navi__linkit" id="navilinkit">
+      <a href="../index.html#aloittelija">Aloittelija</a>
+      <a href="../index.html#edistynyt">Edistynyt</a>
+      <a href="../index.html#tietoa">Tietoa</a>
+      <a href="https://www.tradingview.com/?aff_id=168670" target="_blank" rel="noopener">TradingView</a>
+    </div>
+    <button class="navi-nappi" onclick="document.getElementById('navilinkit').classList.toggle('auki')" aria-label="Valikko">☰</button>
+  </div>
+</nav>
+
+<main class="artikkeli">
+  <article class="artikkeli__wrap">
+    <nav class="murupolku">
+      <a href="../index.html">Etusivu</a> <span>/</span>
+      <a href="../index.html#aloittelija">Aloittelija</a> <span>/</span>
+      <span>Mikä on kryptolompakko?</span>
+    </nav>
+    <div class="artikkeli__meta">
+      <span class="merkki">Aloittelija</span>
+      <span class="lukuaika">⏱ 12 min lukuaika</span>
+    </div>
+    <h1>Mikä on kryptolompakko?</h1>
+    <p class="artikkeli__ingressi">Kryptolompakko on ovi koko lohkoketjujen maailmaan. Se ei varsinaisesti „säilö” rahojasi kuten fyysinen lompakko, vaan hallitsee avaimia, joilla pääset käsiksi lohkoketjussa oleviin varoihin. Tässä oppaassa käydään läpi mitä lompakko oikeasti on, mitä seed-lause, julkinen avain ja yksityinen avain tarkoittavat, miksi seed kirjoitetaan aina paperille ja miten kylmä- ja kuumalompakko eroavat toisistaan.</p>
+    <nav class="sisallys">
+      <h2>Sisällys</h2>
+      <ol>
+          <li><a href="#mika">Mikä kryptolompakko oikeasti on</a></li>
+          <li><a href="#avaimet">Kolme käsitettä: seed, julkinen ja yksityinen avain</a></li>
+          <li><a href="#paperille">Miksi seed kirjoitetaan aina paperille</a></li>
+          <li><a href="#kylma-kuuma">Kylmälompakko vs. kuumalompakko</a></li>
+          <li><a href="#kumpi">Kumman valitsen?</a></li>
+          <li><a href="#yhteenveto">Yhteenveto</a></li>
+      </ol>
+    </nav>
+    <div class="sisalto">
+<h2 id="mika">Mikä kryptolompakko oikeasti on</h2>
+
+<p>Aloitetaan purkamalla yleisin väärinkäsitys. Kun ajattelet lompakkoa, ajattelet luultavasti nahkaista kukkaroa, jossa on seteleitä ja kolikoita. Kryptolompakko ei toimi näin. <strong>Sinun kolikkosi eivät ole lompakossa.</strong> Ne ovat lohkoketjussa – valtavassa, julkisessa tilikirjassa, jota tuhannet tietokoneet ympäri maailmaa ylläpitävät yhdessä.</p>
+
+<p>Mitä lompakko sitten tekee? Se hallitsee <strong>avaimia</strong>. Kuvittele lohkoketju jättimäisenä kerrostalona, jossa on miljoonia postilaatikoita. Jokaisella postilaatikolla on oma osoite, jonka kuka tahansa näkee. Sinun lompakkosi pitää hallussaan avainta, joka avaa juuri sinun postilaatikkosi. Rahat ovat laatikossa (lohkoketjussa), mutta ilman avainta niihin ei pääse käsiksi.</p>
+
+<p>Tämä on tärkein oivallus koko kryptomaailmassa: <strong>se joka hallitsee avaimia, hallitsee varoja.</strong> Englanniksi tämä tiivistyy sanontaan „not your keys, not your coins” – jos avaimet eivät ole sinun, kolikot eivät ole sinun. Tähän palataan myöhemmin, kun puhutaan pörsseissä pidettävistä varoista.</p>
+
+<div class="laatikko laatikko--vinkki">
+  <div class="laatikko__otsikko">💡 Ydinajatus</div>
+  <p>Lompakko ei säilö rahaa – se säilöä avaimet. Rahat ovat aina lohkoketjussa. Jos menetät avaimet, menetät pääsyn rahoihin, vaikka rahat ovat yhä „olemassa” lohkoketjussa.</p>
+</div>
+
+<h2 id="avaimet">Kolme käsitettä: seed, julkinen ja yksityinen avain</h2>
+
+<p>Nämä kolme termiä kuulee jatkuvasti, ja ne sekoittuvat helposti. Käydään ne läpi selkeästi.</p>
+
+<h3>Yksityinen avain (private key)</h3>
+<p>Yksityinen avain on pitkä salainen numerosarja, joka todistaa omistajuutesi. Se on kuin talon avain: jos joku saa sen, hän pääsee sisään ja voi viedä kaiken. Yksityistä avainta <strong>ei koskaan jaeta kenellekään</strong>, ei mihinkään verkkosivulle eikä kellekään „tukihenkilölle”. Kukaan aito palvelu ei koskaan kysy yksityistä avaintasi.</p>
+
+<h3>Julkinen avain ja osoite (public key / address)</h3>
+<p>Julkinen avain johdetaan matemaattisesti yksityisestä avaimesta, ja siitä muodostetaan <strong>osoite</strong> – se merkkijono, jonka annat muille kun haluat vastaanottaa varoja. Osoite näyttää esimerkiksi tältä: <code>0x71C7656E...</code> (Ethereum) tai <code>7cVfgArC...</code> (Solana). Osoitteen voi jakaa vapaasti – se on kuin pankkitilin numero. Kukaan ei voi viedä rahojasi pelkällä osoitteella, he voivat vain lähettää sinne.</p>
+
+<h3>Seed-lause (seed phrase / recovery phrase)</h3>
+<p>Tässä on koko turvallisuuden ydin. Seed-lause on yleensä <strong>12 tai 24 englanninkielistä sanaa</strong> tietyssä järjestyksessä, esimerkiksi „river spoon glass truck...”. Tästä sanalistasta johdetaan yksityinen avain – ja itse asiassa kaikki lompakkosi avaimet kaikilla ketjuilla.</p>
+
+<p>Seed-lause on <strong>varmuuskopiosi ja pääavaimesi yhdessä</strong>. Jos puhelimesi katoaa, voit asentaa saman lompakon uudelle laitteelle ja syöttää nuo 12–24 sanaa – ja kaikki varasi palautuvat. Mutta tämä tarkoittaa myös, että <strong>kuka tahansa jolla on seed-lauseesi, saa täyden hallinnan varoihisi</strong>. Ei salasanaa, ei kaksivaiheista tunnistautumista – pelkkä sanalista riittää.</p>
+
+<dl class="termi">
+  <dt>Seed</dt><dd>12–24 sanaa – pääavain ja varmuuskopio. Palauttaa koko lompakon. Pidä salassa hengelläsi.</dd>
+  <dt>Yksityinen</dt><dd>Johdettu seedistä. Allekirjoittaa siirrot. Ei koskaan kenellekään.</dd>
+  <dt>Julkinen</dt><dd>Osoite jonka jaat. Turvallinen näyttää. Vastaanottaa varoja.</dd>
+</dl>
+
+<div class="laatikko laatikko--vaara">
+  <div class="laatikko__otsikko">⚠️ Muista tämä</div>
+  <p>Seed-lause = kaikki rahasi. Kuka tahansa jolla on se, omistaa varasi. Sitä ei jaeta kenellekään, ei kirjoiteta puhelimeen, ei tallenneta pilveen. Yksikään aito taho – ei Anthropic, ei MetaMask, ei kukaan „tuki” – ei koskaan pyydä seed-lausettasi.</p>
+</div>
+
+<h2 id="paperille">Miksi seed kirjoitetaan aina paperille</h2>
+
+<p>Tämä tuntuu monista oudolta vuonna 2026 – miksi kirjoittaa mitään paperille, kun kaikki on digitaalista? Vastaus on yksinkertainen: <strong>kaikki mikä on netissä, voidaan varastaa netin kautta.</strong></p>
+
+<p>Ajattele näitä tapoja tallentaa seed-lause ja mieti riskit:</p>
+
+<ul>
+  <li><strong>Puhelimen muistiinpanot tai kuvakaappaus</strong> – jos puhelimeesi tulee haittaohjelma tai se synkronoituu pilveen joka murretaan, seed on menetetty. Kuvakaappaukset päätyvät usein automaattisesti pilvivarmuuskopioon.</li>
+  <li><strong>Sähköposti itsellesi</strong> – sähköpostitili on hakkereiden ykköskohde. Yksi vuotanut salasana ja kaikki on auki.</li>
+  <li><strong>Pilvipalvelu (Google Drive, iCloud, Dropbox)</strong> – sama ongelma. Tili voidaan murtaa, ja tiedostot voidaan skannata.</li>
+  <li><strong>Salasananhallinta</strong> – parempi kuin edellä mainitut, mutta silti verkossa oleva kohde. Monet asiantuntijat pitävät tätä hyväksyttävänä pieniin summiin, mutta ei suuriin.</li>
+</ul>
+
+<p>Kun seed on <strong>vain paperilla</strong> (tai metallilevyssä), sitä ei voi varastaa internetin kautta. Hakkerin pitäisi fyysisesti murtautua kotiisi. Tämä on valtava ero: siirrät hyökkäyspinnan koko maailman internetistä yhteen fyysiseen paikkaan, jota voit itse suojata.</p>
+
+<div class="laatikko laatikko--vinkki">
+  <div class="laatikko__otsikko">💡 Käytännön vinkit seedin säilytykseen</div>
+  <p>Kirjoita seed selkeällä käsialalla paperille ja numeroi sanat (1–12). Tee <strong>kaksi kopiota</strong> ja säilö ne eri paikoissa – esimerkiksi toinen kotona lukitussa laatikossa, toinen vaikka pankkiholvissa tai luotettavan sukulaisen luona. Vakavampaan käyttöön hanki <strong>metallinen seed-levy</strong> (esim. teräksinen), joka kestää tulipalon ja veden. Paperi palaa – teräs ei.</p>
+</div>
+
+<p>Älä koskaan syötä seed-lausetta mihinkään verkkosivulle. Aidot lompakot pyytävät seediä vain <em>palautustilanteessa</em> ja vain lompakon omassa sovelluksessa, ei koskaan satunnaisella nettisivulla. Jos jokin sivu pyytää seediäsi „vahvistaakseen lompakkosi” tai „ratkaistakseen ongelman”, se on huijaus – poistu heti.</p>
+
+<h2 id="kylma-kuuma">Kylmälompakko vs. kuumalompakko</h2>
+
+<p>Lompakot jaetaan karkeasti kahteen ryhmään sen mukaan, onko yksityinen avain koskaan yhteydessä internetiin.</p>
+
+<h3>Kuumalompakko (hot wallet)</h3>
+<p>Kuumalompakko on ohjelmisto, joka toimii nettiin kytketyllä laitteella – puhelimessa tai selaimessa. MetaMask, Phantom ja OKX-lompakko ovat kuumalompakkoja. Ne ovat <strong>käteviä</strong>: avaat sovelluksen, hyväksyt siirron ja se tapahtuu sekunneissa. Voit olla vuorovaikutuksessa sovellusten kanssa, vaihtaa tokeneita ja mintata NFT:itä helposti.</p>
+<p>Hinta kätevyydestä on turvallisuus. Koska yksityinen avain on laitteella, joka on netissä, haittaohjelma tai huijaussivusto voi teoriassa päästä siihen käsiksi. Kuumalompakko on kuin lompakko takataskussasi – kätevä päivittäiseen käyttöön, mutta et pitäisi siinä koko omaisuuttasi.</p>
+
+<h3>Kylmälompakko (cold wallet)</h3>
+<p>Kylmälompakossa yksityinen avain on <strong>fyysisessä laitteessa, joka ei ole koskaan yhteydessä internetiin</strong>. Yleisimmät ovat <em>laitteistolompakot</em> (hardware wallet) kuten Ledger tai Trezor – pienet USB-tikun kokoiset laitteet. Kun haluat tehdä siirron, laite allekirjoittaa sen sisäisesti, eikä yksityinen avain koskaan poistu laitteesta.</p>
+<p>Näin vaikka tietokoneesi olisi haittaohjelmien saastuttama, hakkeri ei saa avaintasi – se ei ole koneella. Tämä tekee kylmälompakosta selvästi turvallisimman tavan säilöä suurempia summia pitkällä aikavälillä. Kylmälompakko on kuin pankkiholvi: et käy siellä joka päivä, mutta arvokkaimmat asiat ovat siellä turvassa.</p>
+
+<div class="laatikko laatikko--vinkki">
+  <div class="laatikko__otsikko">💡 Yleinen käytäntö</div>
+  <p>Monet kokeneet käyttäjät käyttävät <strong>molempia</strong>: kuumalompakkoa pienellä summalla päivittäiseen käyttöön ja sovellusten kokeiluun, ja kylmälompakkoa „säästötilinä” suuremmille summille. Näin saat sekä kätevyyden että turvan.</p>
+</div>
+
+<h2 id="kumpi">Kumman valitsen?</h2>
+
+<p>Jos olet vasta aloittamassa etkä liikuttele suuria summia, <strong>kuumalompakko riittää täysin</strong> opetteluun. Tässä koulussa aloitetaan MetaMaskilla, joka on ilmainen ja helppo. Voit opetella lompakon käytön, siirrot ja sovellukset ilman että sinun tarvitsee heti ostaa laitteistolompakkoa.</p>
+
+<p>Nyrkkisääntö: kun kryptovarojesi arvo alkaa olla summa, jonka menettäminen sattuisi kunnolla, on aika harkita laitteistolompakkoa. Sitä ennen keskity opettelemaan perusteet ja hyvät tavat huolellisesti – suurin osa menetyksistä johtuu huonoista tavoista, ei siitä että lompakko olisi „vääränlainen”.</p>
+
+<h2 id="yhteenveto">Yhteenveto</h2>
+
+<p>Kävimme läpi kryptolompakon perusteet. Tärkeimmät asiat muistettavaksi:</p>
+
+<ul>
+  <li>Lompakko ei säilö rahaa, vaan avaimia. Rahat ovat aina lohkoketjussa.</li>
+  <li><strong>Seed-lause</strong> (12–24 sanaa) on pääavaimesi ja varmuuskopiosi. Kuka tahansa jolla on se, omistaa varasi.</li>
+  <li><strong>Yksityinen avain</strong> pysyy salassa; <strong>julkinen osoite</strong> voidaan jakaa vapaasti.</li>
+  <li>Kirjoita seed <strong>paperille tai metalliin</strong>, ei koskaan puhelimeen, sähköpostiin tai pilveen.</li>
+  <li><strong>Kuumalompakko</strong> = kätevä, netissä, pienille summille. <strong>Kylmälompakko</strong> = turvallinen, offline, suurille summille.</li>
+</ul>
+
+<p>Seuraavaksi syvennytään lompakon turvallisuuteen käytännössä: miten siirrät varoja pörssistä turvallisesti, miksi osoitteita ei koskaan kopioida explorerista, ja miten suojaudut yleisimmiltä ansoilta.</p>
+    </div>
+    <div class="vastuuvapaus">
+  <strong>Huomio:</strong> Tämä sisältö on koulutusta, ei sijoitusneuvontaa. Kryptovaluutat ovat erittäin riskialttiita ja voit menettää koko sijoituksesi. Tee aina oma tutkimuksesi (DYOR) ja vastaa itse päätöksistäsi. Kirjoittaja ei vastaa mahdollisista tappioista.
+</div>
+    <div class="cta">
+  <h2>Seuraa Kryptokoulua</h2>
+  <p>Uudet oppaat, markkinahavainnot ja airdrop-vinkit ilmestyvät ensin somessa. Liity mukaan ja opettele yhdessä muiden kanssa.</p>
+  <div class="cta__napit">
+    <a href="https://x.com/Kryptokoulu" target="_blank" rel="noopener" class="nappi nappi--paa">Seuraa X:ssä</a>
+    <a href="https://www.tradingview.com/?aff_id=168670" target="_blank" rel="noopener" class="nappi nappi--reuna">Avaa TradingView</a>
+  </div>
+</div>
+    <nav class="artikkeli-navi">
+<a href="../index.html"><span>← Takaisin</span><b>Etusivu</b></a>
+<a href="lompakon-turvallisuus.html" class="seur"><span>Seuraava →</span><b>Kryptolompakon turvallisuus</b></a>
+</nav>
+  </article>
+</main>
+<footer class="alatunniste">
+  <div class="wrap">
+    <div class="alatunniste__grid">
+      <div>
+        <a href="../index.html" class="logo alatunniste__logo">
+          <span class="logo__merkki">K</span> Kryptokoulu
+        </a>
+        <p>Selkeät suomenkieliset oppaat kryptovaluuttojen maailmaan. Oikeita käytäntöjä, ei teknistä hömppää. Opettele turvallisesti, askel kerrallaan.</p>
+      </div>
+      <div>
+        <h5>Oppaat</h5>
+        <ul>
+          <li><a href="kryptolompakko.html">Kryptolompakko</a></li>
+          <li><a href="metamask.html">MetaMask</a></li>
+          <li><a href="silloittaminen.html">Silloittaminen</a></li>
+          <li><a href="staking.html">Staking</a></li>
+          <li><a href="airdrop.html">Airdrop-farmaus</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Seuraa</h5>
+        <ul>
+          <li><a href="https://x.com/Kryptokoulu" target="_blank" rel="noopener">X / Twitter</a></li>
+          <li><a href="https://coinmarketcap.com/community/profile/krytokoulu/" target="_blank" rel="noopener">CoinMarketCap</a></li>
+          <li><a href="https://www.tradingview.com/?aff_id=168670" target="_blank" rel="noopener">TradingView</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="alatunniste__alaosa">
+      <span>© 2026 Kryptokoulu. Ei sijoitusneuvontaa.</span>
+      <div class="some-linkit">
+        <a href="https://x.com/Kryptokoulu" target="_blank" rel="noopener">X</a>
+        <a href="https://coinmarketcap.com/community/profile/krytokoulu/" target="_blank" rel="noopener">CMC</a>
+        <a href="https://www.tradingview.com/?aff_id=168670" target="_blank" rel="noopener">TradingView</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Mikä on kryptolompakko?",
+  "description": "Seed-lause, julkinen ja yksityinen avain, ja miksi kylmä- ja kuumalompakko eroavat toisistaan.",
+  "author": { "@type": "Organization", "name": "Kryptokoulu" },
+  "publisher": { "@type": "Organization", "name": "Kryptokoulu" },
+  "inLanguage": "fi-FI",
+  "url": "https://kryptokoulu.github.io/kryptokoulu/artikkelit/kryptolompakko.html"
+}
+</script>
