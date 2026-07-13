@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Likviditeetti ja impermanent loss | Kryptokoulu</title>
+<meta name="description" content="Miten lisäät likviditeettiä pooliin, mistä tuotto syntyy ja mitä impermanent loss oikeasti tarkoittaa.">
+<meta name="keywords" content="likviditeetti, impermanent loss, likviditeettiallas, DeFi, likviditeetin tarjoaminen">
+<meta name="author" content="Kryptokoulu">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://kryptokoulu.github.io/kryptokoulu/artikkelit/likviditeetti.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Likviditeetti ja impermanent loss | Kryptokoulu">
+<meta property="og:description" content="Miten lisäät likviditeettiä pooliin, mistä tuotto syntyy ja mitä impermanent loss oikeasti tarkoittaa.">
+<meta property="og:url" content="https://kryptokoulu.github.io/kryptokoulu/artikkelit/likviditeetti.html">
+<meta property="og:site_name" content="Kryptokoulu">
+<meta property="og:locale" content="fi_FI">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@Kryptokoulu">
+<meta name="twitter:title" content="Likviditeetti ja impermanent loss | Kryptokoulu">
+<meta name="twitter:description" content="Miten lisäät likviditeettiä pooliin, mistä tuotto syntyy ja mitä impermanent loss oikeasti tarkoittaa.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/tyyli.css">
+</head>
+<body>
+
+<nav class="navi">
+  <div class="navi__sisalto">
+    <a href="../index.html" class="logo">
+      <span class="logo__merkki">K</span> Kryptokoulu
+    </a>
+    <div class="navi__linkit" id="navilinkit">
+      <a href="../index.html#aloittelija">Aloittelija</a>
+      <a href="../index.html#edistynyt">Edistynyt</a>
+      <a href="../index.html#tietoa">Tietoa</a>
+      <a href="https://www.tradingview.com/?aff_id=168670" target="_blank" rel="noopener">TradingView</a>
+    </div>
+    <button class="navi-nappi" onclick="document.getElementById('navilinkit').classList.toggle('auki')" aria-label="Valikko">☰</button>
+  </div>
+</nav>
+
+<main class="artikkeli">
+  <article class="artikkeli__wrap">
+    <nav class="murupolku">
+      <a href="../index.html">Etusivu</a> <span>/</span>
+      <a href="../index.html#edistynyt">Edistynyt</a> <span>/</span>
+      <span>Likviditeetti ja impermanent loss</span>
+    </nav>
+    <div class="artikkeli__meta">
+      <span class="merkki merkki--edist">Edistynyt</span>
+      <span class="lukuaika">⏱ 14 min lukuaika</span>
+    </div>
+    <h1>Likviditeetti ja impermanent loss</h1>
+    <p class="artikkeli__ingressi">Likviditeetin tarjoaminen on yksi DeFin (hajautetun rahoituksen) peruspilareista ja tapa ansaita tuottoa krypto-omistuksilla. Mutta siihen liittyy käsite, jota moni ei ymmärrä ennen kuin on menettänyt rahaa: impermanent loss. Tässä oppaassa selitetään selkokielellä mitä likviditeettialtaat ovat, miten tarjoat likviditeettiä pooliin, mistä tuotto oikeasti syntyy ja mitä impermanent loss tarkoittaa – jotta ymmärrät riskin ennen kuin sitoudut.</p>
+    <nav class="sisallys">
+      <h2>Sisällys</h2>
+      <ol>
+          <li><a href="#pooli">Mikä on likviditeettiallas</a></li>
+          <li><a href="#miten">Miten tarjoat likviditeettiä</a></li>
+          <li><a href="#tuotto">Mistä tuotto syntyy</a></li>
+          <li><a href="#il">Impermanent loss selkokielellä</a></li>
+          <li><a href="#esimerkki">Konkreettinen esimerkki</a></li>
+          <li><a href="#kannattaako">Milloin se kannattaa</a></li>
+          <li><a href="#yhteenveto">Yhteenveto</a></li>
+      </ol>
+    </nav>
+    <div class="sisalto">
+<h2 id="pooli">Mikä on likviditeettiallas</h2>
+
+<p>Perinteisessä pörssissä ostajat ja myyjät kohtaavat toisensa: joku myy, joku ostaa, ja pörssi yhdistää heidät. Hajautetuissa pörsseissä (DEX, kuten Uniswap, Aerodrome tai monet muut) toimii toinen malli: <strong>likviditeettialtaat</strong> (liquidity pools).</p>
+
+<p>Likviditeettiallas on älykontrahti, joka sisältää kahta eri tokenia, esimerkiksi ETH:ta ja USDC:tä. Kun joku haluaa vaihtaa ETH:ta USDC:ksi, hän ei etsi vastapuolta – hän vaihtaa suoraan altaan kanssa. Allas antaa hänelle USDC:tä ja ottaa vastaan ETH:ta, hinnan määräytyessä matemaattisen kaavan mukaan.</p>
+
+<p>Mistä allas saa nuo tokenit? <strong>Käyttäjiltä kuten sinulta.</strong> Kun tarjoat likviditeettiä, talletat altaaseen molempia tokeneita (esim. ETH:ta ja USDC:tä), ja ne ovat siellä muiden vaihdettavissa. Vastineeksi saat osuuden altaan <strong>vaihtomaksuista</strong> – tästä tuotto syntyy.</p>
+
+<div class="laatikko laatikko--vinkki">
+  <div class="laatikko__otsikko">💡 Yksinkertainen kuva</div>
+  <p>Ajattele likviditeettiallasta yhteisenä valuutanvaihtokassana, johon useat ihmiset laittavat rahaa. Kun joku vaihtaa valuuttaa kassan kautta, hän maksaa pienen palkkion, joka jaetaan kassan rahoittajille. Sinä olet yksi rahoittajista ja saat osuutesi palkkioista.</p>
+</div>
+
+<h2 id="miten">Miten tarjoat likviditeettiä</h2>
+
+<p>Käytännössä likviditeetin tarjoaminen etenee näin:</p>
+
+<ol class="askeleet">
+  <li><b>Valitse luotettava alusta ja allas</b>Käytä tunnettua hajautettua pörssiä (esim. Aerodrome Basessa, tai muu vakiintunut). Valitse token-pari jota haluat tarjota, esim. ETH/USDC.</li>
+  <li><b>Varmista että sinulla on molempia tokeneita</b>Perinteisessä altaassa tarvitset yhtä suuren arvon molempia tokeneita (esim. 100 euron arvosta ETH:ta ja 100 euron arvosta USDC:tä). Jotkut uudemmat mallit sallivat muitakin suhteita.</li>
+  <li><b>Talleta likviditeetti („Add Liquidity”)</b>Yhdistä lompakko, valitse määrät, ja hyväksy talletus. Saat vastineeksi „LP-tokenin” tai position, joka edustaa osuuttasi altaasta.</li>
+  <li><b>Ansaitse maksuista</b>Nyt osuutesi altaasta kerää vaihtomaksuja aina kun joku käyttää allasta. Voit seurata kertyneitä tuottoja alustan käyttöliittymässä.</li>
+  <li><b>Nosta kun haluat („Remove Liquidity”)</b>Voit ottaa likviditeettisi pois milloin tahansa. Saat takaisin osuutesi altaasta – mutta huomaa, että tokenien suhde on voinut muuttua (tästä seuraava osio).</li>
+</ol>
+
+<h2 id="tuotto">Mistä tuotto syntyy</h2>
+
+<p>Likviditeetin tarjoajan tuotto koostuu tyypillisesti kahdesta osasta:</p>
+
+<ul>
+  <li><strong>Vaihtomaksut:</strong> jokaisesta altaan kautta tehdystä vaihdosta peritään pieni maksu (esim. 0,3 %), joka jaetaan likviditeetin tarjoajille heidän osuutensa mukaan. Mitä enemmän allasta käytetään, sitä enemmän maksuja kertyy.</li>
+  <li><strong>Kannustimet (incentives):</strong> monet alustat jakavat lisäksi omaa tokeniaan palkkiona likviditeetin tarjoajille houkutellakseen pääomaa. Tämä voi nostaa kokonaistuottoa, mutta palkkiotokenin arvo voi myös vaihdella.</li>
+</ul>
+
+<p>Tuotto ilmaistaan usein muodossa <strong>APR</strong> tai <strong>APY</strong> (vuosituottoprosentti). Varo houkuttelevan korkeita lukuja – erityisen suuri APY tarkoittaa usein erityisen suurta riskiä, ja luku voi perustua epävakaan palkkiotokenin hetkelliseen arvoon. Korkea tuotto ei ole ilmaista; se on korvausta riskistä.</p>
+
+<h2 id="il">Impermanent loss selkokielellä</h2>
+
+<p>Tämä on koko oppaan tärkein käsite. <strong>Impermanent loss</strong> (väliaikainen tappio, IL) tarkoittaa tappiota, joka syntyy kun likviditeettialtaassa olevien tokenien <strong>hintasuhde muuttuu</strong> verrattuna siihen, että olisit vain pitänyt tokenit lompakossasi.</p>
+
+<p>Miksi näin tapahtuu? Likviditeettiallas pitää tokenien arvot tasapainossa matemaattisella kaavalla. Kun toisen tokenin hinta nousee, allas automaattisesti <strong>myy sitä nousevaa tokenia ja ostaa laskevaa</strong> pitääkseen tasapainon. Lopputulos: kun nostat likviditeettisi, sinulla on <strong>enemmän sitä tokenia jonka arvo laski ja vähemmän sitä jonka arvo nousi</strong> – verrattuna siihen että olisit vain pitänyt ne.</p>
+
+<p>Nimi „väliaikainen” tulee siitä, että tappio on vain laskennallinen niin kauan kuin et nosta – jos hintasuhde palaa enn alleen, tappio häviää. Mutta jos nostat likviditeetin silloin kun suhde on muuttunut, tappio realisoituu ja muuttuu pysyväksi. Käytännössä nimi on hieman harhaanjohtava – tappio voi hyvinkin jäädä pysyväksi.</p>
+
+<div class="laatikko laatikko--varo">
+  <div class="laatikko__otsikko">⚠️ Ydin</div>
+  <p>Impermanent loss tarkoittaa: jos toinen tokeneistasi nousee (tai laskee) paljon suhteessa toiseen, saatat saada altaasta vähemmän arvoa takaisin kuin jos olisit vain pitänyt tokenit. Vaihtomaksut voivat korvata tämän – tai eivät. Mitä volatiilimpi pari, sitä suurempi IL-riski.</p>
+</div>
+
+<h2 id="esimerkki">Konkreettinen esimerkki</h2>
+
+<p>Havainnollistetaan yksinkertaisella esimerkillä (luvut pyöristetty selkeyden vuoksi):</p>
+
+<p>Oletetaan että talletat altaaseen ETH/USDC-pariin, kun ETH:n hinta on 2 000 euroa. Talletat 1 ETH (2 000 €) ja 2 000 USDC (2 000 €), yhteensä 4 000 euron arvosta.</p>
+
+<ul>
+  <li><strong>Skenaario A – ETH nousee 4 000 euroon:</strong> Koska allas tasapainottaa, se on „myynyt” osan ETH:stasi matkalla ylös. Kun nostat, sinulla on vähemmän ETH:ta ja enemmän USDC:tä kuin alussa. Positiosi arvo on noussut, mutta <strong>vähemmän</strong> kuin jos olisit vain pitänyt alkuperäisen 1 ETH + 2 000 USDC. Erotus on impermanent loss.</li>
+  <li><strong>Skenaario B – hinnat pysyvät samana:</strong> Ei impermanent lossia. Keräät vain vaihtomaksut puhtaana tuottona. Tämä on paras tilanne likviditeetin tarjoajalle.</li>
+  <li><strong>Skenaario C – ETH romahtaa:</strong> Allas on „ostanut” lisää ETH:ta matkalla alas, joten sinulla on enemmän arvoltaan pudonnutta ETH:ta. Tappiosi on suurempi kuin pelkällä pitämisellä.</li>
+</ul>
+
+<p>Huomaa kuvio: impermanent loss satuttaa eniten silloin kun hinnat liikkuvat <strong>voimakkaasti johonkin suuntaan</strong>. Jos parisi molemmat tokenit liikkuvat samaan tahtiin (esim. kaksi stablecoinia), IL on hyvin pieni. Jos toinen on erittäin volatiili, IL-riski on suuri.</p>
+
+<h2 id="kannattaako">Milloin se kannattaa</h2>
+
+<p>Likviditeetin tarjoaminen voi olla järkevää, mutta se vaatii ymmärrystä. Muutama periaate:</p>
+
+<ul>
+  <li><strong>Vakaammat parit = pienempi IL:</strong> stablecoin-parit (esim. USDC/USDT) tai vahvasti korreloivat tokenit tuottavat vähemmän impermanent lossia. Ne ovat aloittelijaystävällisempiä.</li>
+  <li><strong>Vaihtomaksujen pitää ylittää IL:</strong> likviditeetti kannattaa vain jos ansaitut maksut ja kannustimet ovat suuremmat kuin impermanent loss. Tätä on vaikea ennustaa etukäteen.</li>
+  <li><strong>Ymmärrä mihin sitoudut:</strong> älä tarjoa likviditeettiä pariin jonka volatiliteettiä et ymmärrä. Korkea APY volatiilissa parissa voi silti johtaa tappioon IL:n takia.</li>
+  <li><strong>Aloita pienellä:</strong> kuten kaikessa, opettele pienellä summalla ja seuraa mitä tapahtuu ennen kuin sitoudut isommin.</li>
+</ul>
+
+<h2 id="yhteenveto">Yhteenveto</h2>
+
+<ul>
+  <li>✅ <strong>Likviditeettiallas</strong> mahdollistaa hajautetun vaihdon; tarjoajat tallettavat tokeneita ja ansaitsevat maksuista.</li>
+  <li>✅ Tuotto tulee <strong>vaihtomaksuista</strong> ja mahdollisista <strong>kannustimista</strong> – korkea APY tarkoittaa yleensä korkeaa riskiä.</li>
+  <li>⚠️ <strong>Impermanent loss</strong> syntyy kun tokenien hintasuhde muuttuu – voit saada vähemmän kuin pelkällä pitämisellä.</li>
+  <li>✅ Vakaammat parit = pienempi IL. Maksujen pitää ylittää IL jotta positio kannattaa.</li>
+  <li>✅ Ymmärrä riski ja <strong>aloita pienellä</strong>.</li>
+</ul>
+
+<p>Seuraavaksi tutustutaan stakingiin – tapoihin ansaita tuottoa tokeneilla eri palveluissa, ja siihen mitä eri stakingin muodot oikeasti tarkoittavat.</p>
+    </div>
+    <div class="vastuuvapaus">
+  <strong>Huomio:</strong> Tämä sisältö on koulutusta, ei sijoitusneuvontaa. Kryptovaluutat ovat erittäin riskialttiita ja voit menettää koko sijoituksesi. Tee aina oma tutkimuksesi (DYOR) ja vastaa itse päätöksistäsi. Kirjoittaja ei vastaa mahdollisista tappioista.
+</div>
+    <div class="cta">
+  <h2>Seuraa Kryptokoulua</h2>
+  <p>Uudet oppaat, markkinahavainnot ja airdrop-vinkit ilmestyvät ensin somessa. Liity mukaan ja opettele yhdessä muiden kanssa.</p>
+  <div class="cta__napit">
+    <a href="https://x.com/Kryptokoulu" target="_blank" rel="noopener" class="nappi nappi--paa">Seuraa X:ssä</a>
+    <a href="https://www.tradingview.com/?aff_id=168670" target="_blank" rel="noopener" class="nappi nappi--reuna">Avaa TradingView</a>
+  </div>
+</div>
+    <nav class="artikkeli-navi">
+<a href="meemikolikot.html"><span>← Edellinen</span><b>Varoitus: meemimarkkina</b></a>
+<a href="staking.html" class="seur"><span>Seuraava →</span><b>Staking eri palveluissa</b></a>
+</nav>
+  </article>
+</main>
+<footer class="alatunniste">
+  <div class="wrap">
+    <div class="alatunniste__grid">
+      <div>
+        <a href="../index.html" class="logo alatunniste__logo">
+          <span class="logo__merkki">K</span> Kryptokoulu
+        </a>
+        <p>Selkeät suomenkieliset oppaat kryptovaluuttojen maailmaan. Oikeita käytäntöjä, ei teknistä hömppää. Opettele turvallisesti, askel kerrallaan.</p>
+      </div>
+      <div>
+        <h5>Oppaat</h5>
+        <ul>
+          <li><a href="kryptolompakko.html">Kryptolompakko</a></li>
+          <li><a href="metamask.html">MetaMask</a></li>
+          <li><a href="silloittaminen.html">Silloittaminen</a></li>
+          <li><a href="staking.html">Staking</a></li>
+          <li><a href="airdrop.html">Airdrop-farmaus</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Seuraa</h5>
+        <ul>
+          <li><a href="https://x.com/Kryptokoulu" target="_blank" rel="noopener">X / Twitter</a></li>
+          <li><a href="https://coinmarketcap.com/community/profile/krytokoulu/" target="_blank" rel="noopener">CoinMarketCap</a></li>
+          <li><a href="https://www.tradingview.com/?aff_id=168670" target="_blank" rel="noopener">TradingView</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="alatunniste__alaosa">
+      <span>© 2026 Kryptokoulu. Ei sijoitusneuvontaa.</span>
+      <div class="some-linkit">
+        <a href="https://x.com/Kryptokoulu" target="_blank" rel="noopener">X</a>
+        <a href="https://coinmarketcap.com/community/profile/krytokoulu/" target="_blank" rel="noopener">CMC</a>
+        <a href="https://www.tradingview.com/?aff_id=168670" target="_blank" rel="noopener">TradingView</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Likviditeetti ja impermanent loss",
+  "description": "Miten lisäät likviditeettiä pooliin, mistä tuotto syntyy ja mitä impermanent loss oikeasti tarkoittaa.",
+  "author": { "@type": "Organization", "name": "Kryptokoulu" },
+  "publisher": { "@type": "Organization", "name": "Kryptokoulu" },
+  "inLanguage": "fi-FI",
+  "url": "https://kryptokoulu.github.io/kryptokoulu/artikkelit/likviditeetti.html"
+}
+</script>
