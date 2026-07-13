@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harjoittele ilman omaa rahaa | Kryptokoulu</title>
+<meta name="description" content="Monad-testnet, ilmainen tMON-faucet, NFT:n mint ja lompakon käyttö täysin riskittömästi.">
+<meta name="keywords" content="testnet, Monad testnet, tMON faucet, NFT mint, krypto harjoittelu, testiverkko">
+<meta name="author" content="Kryptokoulu">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://kryptokoulu.github.io/kryptokoulu/artikkelit/testnet-harjoittelu.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Harjoittele ilman omaa rahaa | Kryptokoulu">
+<meta property="og:description" content="Monad-testnet, ilmainen tMON-faucet, NFT:n mint ja lompakon käyttö täysin riskittömästi.">
+<meta property="og:url" content="https://kryptokoulu.github.io/kryptokoulu/artikkelit/testnet-harjoittelu.html">
+<meta property="og:site_name" content="Kryptokoulu">
+<meta property="og:locale" content="fi_FI">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@Kryptokoulu">
+<meta name="twitter:title" content="Harjoittele ilman omaa rahaa | Kryptokoulu">
+<meta name="twitter:description" content="Monad-testnet, ilmainen tMON-faucet, NFT:n mint ja lompakon käyttö täysin riskittömästi.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/tyyli.css">
+</head>
+<body>
+
+<nav class="navi">
+  <div class="navi__sisalto">
+    <a href="../index.html" class="logo">
+      <span class="logo__merkki">K</span> Kryptokoulu
+    </a>
+    <div class="navi__linkit" id="navilinkit">
+      <a href="../index.html#aloittelija">Aloittelija</a>
+      <a href="../index.html#edistynyt">Edistynyt</a>
+      <a href="../index.html#tietoa">Tietoa</a>
+      <a href="https://www.tradingview.com/?aff_id=168670" target="_blank" rel="noopener">TradingView</a>
+    </div>
+    <button class="navi-nappi" onclick="document.getElementById('navilinkit').classList.toggle('auki')" aria-label="Valikko">☰</button>
+  </div>
+</nav>
+
+<main class="artikkeli">
+  <article class="artikkeli__wrap">
+    <nav class="murupolku">
+      <a href="../index.html">Etusivu</a> <span>/</span>
+      <a href="../index.html#aloittelija">Aloittelija</a> <span>/</span>
+      <span>Harjoittele ilman omaa rahaa</span>
+    </nav>
+    <div class="artikkeli__meta">
+      <span class="merkki">Aloittelija</span>
+      <span class="lukuaika">⏱ 10 min lukuaika</span>
+    </div>
+    <h1>Harjoittele ilman omaa rahaa</h1>
+    <p class="artikkeli__ingressi">Paras tapa oppia kryptolompakon käyttö on harjoitella ilman että riskeeraat oikeaa rahaa. Testiverkoissa (testnet) tokenit ovat arvottomia ja ilmaisia – voit tehdä siirtoja, mintata NFT:itä ja kokeilla sovelluksia täysin riskittömästi. Tässä oppaassa käytämme esimerkkinä Monad-testnettiä, josta saat ilmaista tMON-tokenia faucetin kautta, ja opettelemme mintaamaan oman NFT:n sekä tekemään yksinkertaisia sopimusvuorovaikutuksia – kaikki ilman euron euroa riskissä.</p>
+    <nav class="sisallys">
+      <h2>Sisällys</h2>
+      <ol>
+          <li><a href="#miksi">Miksi harjoitella testnetissä</a></li>
+          <li><a href="#testnet-mika">Mitä testnet tarkalleen on</a></li>
+          <li><a href="#monad">Monad-testnet ja tMON-faucet</a></li>
+          <li><a href="#siirto">Ensimmäinen testisiirto</a></li>
+          <li><a href="#nft">Oman NFT:n mintaus</a></li>
+          <li><a href="#sopimus">Yksinkertainen sopimusvuorovaikutus</a></li>
+          <li><a href="#yhteenveto">Yhteenveto</a></li>
+      </ol>
+    </nav>
+    <div class="sisalto">
+<h2 id="miksi">Miksi harjoitella testnetissä</h2>
+
+<p>Kryptomaailmassa virheet ovat usein <strong>peruuttamattomia</strong>. Jos lähetät varoja väärään osoitteeseen tai hyväksyt haitallisen sopimuksen, rahat ovat mennyttä. Siksi on älytöntä opetella ensimmäisiä siirtoja oikealla rahalla. Onneksi on olemassa turvallinen harjoitteluympäristö: <strong>testiverkot</strong>.</p>
+
+<p>Testnetissä kaikki toimii täsmälleen kuten oikeassa verkossa – samat lompakot, samat osoitteet, samat toiminnot – mutta tokenit ovat <strong>arvottomia ja ilmaisia</strong>. Voit tehdä kaikki mahdolliset virheet ilman että se maksaa mitään. Tämä on paras tapa rakentaa itsevarmuutta ennen oikean rahan käyttöä.</p>
+
+<div class="laatikko laatikko--vinkki">
+  <div class="laatikko__otsikko">💡 Harjoittele ensin, riskeeraa sitten</div>
+  <p>Ennen kuin liikutat euroakaan oikeaa rahaa, tee testnetissä: vähintään muutama siirto, yksi NFT-mint ja yksi sopimusvuorovaikutus. Kun nämä tuntuvat rutiinilta, olet valmis oikeaan verkkoon. Tämä harjoittelu on täysin ilmaista.</p>
+</div>
+
+<h2 id="testnet-mika">Mitä testnet tarkalleen on</h2>
+
+<p>Jokaisella suurella lohkoketjulla on kaksi versiota:</p>
+
+<ul>
+  <li><strong>Mainnet (pääverkko):</strong> „oikea” verkko, jossa tokeneilla on todellista arvoa ja siirrot maksavat oikeaa rahaa.</li>
+  <li><strong>Testnet (testiverkko):</strong> harjoitteluversio, jossa tokenit ovat arvottomia. Kehittäjät käyttävät sitä sovellusten testaamiseen, ja käyttäjät harjoitteluun.</li>
+</ul>
+
+<p>Testnet-tokeneita saa ilmaiseksi <strong>faucet</strong>-palveluista („hana”). Syötät osoitteesi, ja faucet lähettää sinulle testitokeneita, joilla voit maksaa testnetin kaasumaksut ja kokeilla toimintoja. Näillä tokeneilla ei ole rahallista arvoa, joten faucetit jakavat niitä ilmaiseksi.</p>
+
+<p>Yksi kiinnostava testnet vuonna 2026 on <strong>Monad</strong>, uusi nopea EVM-yhteensopiva ketju. Koska se on EVM-yhteensopiva, voit käyttää sitä tutulla MetaMask-lompakolla. Käytämme sitä tässä esimerkkinä, mutta samat periaatteet toimivat millä tahansa testnetillä.</p>
+
+<h2 id="monad">Monad-testnet ja tMON-faucet</h2>
+
+<p>Näin pääset alkuun Monad-testnetissä:</p>
+
+<ol class="askeleet">
+  <li><b>Lisää Monad-testnet lompakkoosi</b>Käytä Chainlist-palvelua (chainlist.org, käsiteltiin MetaMask-oppaassa) tai Monadin virallista dokumentaatiota lisätäksesi testnetin lompakkoosi. Varmista että verkon tiedot tulevat virallisesta lähteestä.</li>
+  <li><b>Etsi virallinen tMON-faucet</b>Monad-testnetin token on <strong>tMON</strong> (testi-MON). Etsi virallinen faucet Monadin dokumentaatiosta tai viralliselta sivustolta. Varo väärennettyjä faucetteja – aito faucet ei koskaan pyydä seediäsi tai oikeaa rahaa.</li>
+  <li><b>Syötä osoitteesi ja pyydä tokeneita</b>Kopioi lompakkosi osoite (julkinen osoite – turvallista jakaa) faucetiin ja pyydä tMON:ia. Saat testitokenit yleensä muutamassa hetkessä.</li>
+  <li><b>Varmista että tokenit näkyvät</b>Vaihda lompakon verkoksi Monad-testnet ja tarkista että tMON näkyy saldossasi. Nyt sinulla on ilmaista testivaluuttaa harjoitteluun.</li>
+</ol>
+
+<div class="laatikko laatikko--varo">
+  <div class="laatikko__otsikko">⚠️ Faucet ei koskaan pyydä mitään</div>
+  <p>Aito faucet antaa sinulle ilmaisia testitokeneita pelkällä osoitteella. Jos jokin „faucet” pyytää seediäsi, salasanaasi, tai oikean rahan „talletusta” saadaksesi testitokeneita, se on huijaus. Poistu heti. Testitokenit ovat aina ilmaisia.</p>
+</div>
+
+<h2 id="siirto">Ensimmäinen testisiirto</h2>
+
+<p>Nyt harjoitellaan turvallisesti sitä, mitä tulet tekemään oikeassa verkossa. Tee siirto testnetissä:</p>
+
+<ol class="askeleet">
+  <li><b>Luo toinen osoite tai käytä kaverin osoitetta</b>Voit luoda lompakkoosi toisen tilin (account) tai käyttää kaverin testnet-osoitetta. Näin näet miten siirto oikeasti liikkuu osoitteiden välillä.</li>
+  <li><b>Kopioi vastaanotto-osoite oikein</b>Harjoittele hyvää tapaa: kopioi osoite lompakon kopiointipainikkeella, tarkista alku, loppu ja keskikohta.</li>
+  <li><b>Lähetä pieni määrä tMON:ia</b>Valitse Send, liitä osoite, syötä määrä ja tarkista kaikki ennen vahvistusta. Hyväksy siirto.</li>
+  <li><b>Seuraa ja varmista</b>Katso miten siirto vahvistuu ja saapuu toiseen osoitteeseen. Nyt olet tehnyt oikean siirron logiikan turvallisesti läpi.</li>
+</ol>
+
+<p>Toista tämä muutaman kerran, kunnes se tuntuu luontevalta. Jokainen askel – osoitteen kopiointi, verkon tarkistus, määrän syöttö, vahvistus – on täsmälleen sama oikeassa verkossa. Ero on vain, että tässä virhe ei maksa mitään.</p>
+
+<h2 id="nft">Oman NFT:n mintaus</h2>
+
+<p><strong>Mintaus</strong> tarkoittaa uuden NFT:n (tai tokenin) luomista lohkoketjuun. Se on hyvä harjoitus, koska se opettaa sopimusvuorovaikutuksen – sen kun „hyväksyt” toiminnon sovelluksessa ja lompakko pyytää vahvistusta. Testnetissä voit mintata NFT:n ilmaiseksi harjoitusmielessä.</p>
+
+<p>On olemassa palveluita, joilla voi luoda oman NFT:n ilman koodausta – esimerkiksi työkaluja, joissa lataat kuvan ja mintäät sen NFT:ksi. Testnetissä tämä on ilmaista ja turvallista kokeilla.</p>
+
+<ol class="askeleet">
+  <li><b>Etsi testnetissä toimiva mintti-työkalu</b>Hae palvelua, joka tukee valitsemaasi testnettiä (kuten Monad-testnet). Monet no-code NFT-työkalut tukevat testiverkkoja.</li>
+  <li><b>Yhdistä lompakko ja valitse testnet-verkko</b>Varmista että olet testnetissä, ei pääverkossa. Näin minttääminen ei maksa oikeaa rahaa.</li>
+  <li><b>Lataa kuva ja mintää</b>Valitse kuva, täytä tiedot ja aloita minttääminen. Lompakko pyytää vahvistusta – tämä on sama sopimusvuorovaikutus jonka näet oikeissa sovelluksissa.</li>
+  <li><b>Tarkista tulos</b>Kun mint on valmis, NFT näkyy lompakossasi (testnetissä). Olet nyt tehnyt sopimusvuorovaikutuksen turvallisesti.</li>
+</ol>
+
+<div class="laatikko laatikko--vinkki">
+  <div class="laatikko__otsikko">💡 Mitä opit minttäämisestä</div>
+  <p>Minttääminen opettaa tunnistamaan sopimusvuorovaikutuksen ja lompakon vahvistuspyynnön. Kun ymmärrät miten tämä toimii turvallisesti testnetissä, osaat myös tunnistaa oikeissa sovelluksissa mitä olet hyväksymässä – ja huomaat helpommin jos jokin vaikuttaa väärältä.</p>
+</div>
+
+<h2 id="sopimus">Yksinkertainen sopimusvuorovaikutus</h2>
+
+<p>Testnetissä on usein pieniä harjoitussovelluksia, joilla voi kokeilla sopimusvuorovaikutusta vielä yksinkertaisemmin. Yksi tunnettu esimerkki on <strong>„GM”-tyyppiset sopimukset</strong> – sovellukset, joissa painat nappia ja se kirjaa lohkoketjuun tervehdyksen („gm” = good morning, yleinen tervehdys kryptoyhteisössä). Näissä ei ole muuta pointtia kuin harjoitella sopimuksen kutsumista.</p>
+
+<p>Tällaisen harjoituksen idea on yksinkertainen: painat nappia sovelluksessa, lompakko avautuu ja pyytää sinua vahvistamaan tapahtuman, sinä hyväksyt, ja tapahtuma kirjautuu ketjuun. Tämä on koko DeFi:n ja sovellusten peruskaava pienimmillään. Kun teet tämän testnetissä muutaman kerran, ymmärrät rakenteen jota kaikki monimutkaisemmatkin sovellukset noudattavat.</p>
+
+<ol class="askeleet">
+  <li><b>Etsi testnetin harjoitussovellus</b>Monilla uusilla testneteillä on yhteisön tekemiä yksinkertaisia sovelluksia kokeiltavaksi. Etsi sellainen valitsemallesi testnetille.</li>
+  <li><b>Yhdistä lompakko testnet-verkossa</b>Varmista jälleen että olet testnetissä.</li>
+  <li><b>Suorita toiminto ja vahvista</b>Paina nappia, lue mitä lompakko pyytää vahvistamaan, ja hyväksy. Seuraa miten tapahtuma vahvistuu.</li>
+</ol>
+
+<h2 id="yhteenveto">Yhteenveto</h2>
+
+<p>Olet nyt oppinut harjoittelemaan koko lompakon käytön turvallisesti ilman rahaa:</p>
+
+<ul>
+  <li>✅ <strong>Testnet</strong> on ilmainen harjoitteluympäristö, jossa virhe ei maksa mitään.</li>
+  <li>✅ <strong>Faucet</strong> antaa ilmaisia testitokeneita (kuten tMON) pelkällä osoitteella – ei koskaan pyydä seediä tai rahaa.</li>
+  <li>✅ Harjoittele <strong>siirtoja</strong>, <strong>NFT-minttäämistä</strong> ja <strong>sopimusvuorovaikutusta</strong> ennen oikean rahan käyttöä.</li>
+  <li>✅ Sama logiikka pätee pääverkossa – ero on vain, että testnetissä riski on nolla.</li>
+</ul>
+
+<p>Kun nämä tuntuvat rutiinilta, olet valmis siirtymään oikeaan verkkoon itsevarmasti. Seuraavaksi tärkeä varoitus: meemimarkkina ja miksi valtaosa siellä on huijauksia.</p>
+    </div>
+    <div class="vastuuvapaus">
+  <strong>Huomio:</strong> Tämä sisältö on koulutusta, ei sijoitusneuvontaa. Kryptovaluutat ovat erittäin riskialttiita ja voit menettää koko sijoituksesi. Tee aina oma tutkimuksesi (DYOR) ja vastaa itse päätöksistäsi. Kirjoittaja ei vastaa mahdollisista tappioista.
+</div>
+    <div class="cta">
+  <h2>Seuraa Kryptokoulua</h2>
+  <p>Uudet oppaat, markkinahavainnot ja airdrop-vinkit ilmestyvät ensin somessa. Liity mukaan ja opettele yhdessä muiden kanssa.</p>
+  <div class="cta__napit">
+    <a href="https://x.com/Kryptokoulu" target="_blank" rel="noopener" class="nappi nappi--paa">Seuraa X:ssä</a>
+    <a href="https://www.tradingview.com/?aff_id=168670" target="_blank" rel="noopener" class="nappi nappi--reuna">Avaa TradingView</a>
+  </div>
+</div>
+    <nav class="artikkeli-navi">
+<a href="silloittaminen.html"><span>← Edellinen</span><b>Tokenien siirto ketjujen välillä</b></a>
+<a href="meemikolikot.html" class="seur"><span>Seuraava →</span><b>Varoitus: meemimarkkina</b></a>
+</nav>
+  </article>
+</main>
+<footer class="alatunniste">
+  <div class="wrap">
+    <div class="alatunniste__grid">
+      <div>
+        <a href="../index.html" class="logo alatunniste__logo">
+          <span class="logo__merkki">K</span> Kryptokoulu
+        </a>
+        <p>Selkeät suomenkieliset oppaat kryptovaluuttojen maailmaan. Oikeita käytäntöjä, ei teknistä hömppää. Opettele turvallisesti, askel kerrallaan.</p>
+      </div>
+      <div>
+        <h5>Oppaat</h5>
+        <ul>
+          <li><a href="kryptolompakko.html">Kryptolompakko</a></li>
+          <li><a href="metamask.html">MetaMask</a></li>
+          <li><a href="silloittaminen.html">Silloittaminen</a></li>
+          <li><a href="staking.html">Staking</a></li>
+          <li><a href="airdrop.html">Airdrop-farmaus</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Seuraa</h5>
+        <ul>
+          <li><a href="https://x.com/Kryptokoulu" target="_blank" rel="noopener">X / Twitter</a></li>
+          <li><a href="https://coinmarketcap.com/community/profile/krytokoulu/" target="_blank" rel="noopener">CoinMarketCap</a></li>
+          <li><a href="https://www.tradingview.com/?aff_id=168670" target="_blank" rel="noopener">TradingView</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="alatunniste__alaosa">
+      <span>© 2026 Kryptokoulu. Ei sijoitusneuvontaa.</span>
+      <div class="some-linkit">
+        <a href="https://x.com/Kryptokoulu" target="_blank" rel="noopener">X</a>
+        <a href="https://coinmarketcap.com/community/profile/krytokoulu/" target="_blank" rel="noopener">CMC</a>
+        <a href="https://www.tradingview.com/?aff_id=168670" target="_blank" rel="noopener">TradingView</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Harjoittele ilman omaa rahaa",
+  "description": "Monad-testnet, ilmainen tMON-faucet, NFT:n mint ja lompakon käyttö täysin riskittömästi.",
+  "author": { "@type": "Organization", "name": "Kryptokoulu" },
+  "publisher": { "@type": "Organization", "name": "Kryptokoulu" },
+  "inLanguage": "fi-FI",
+  "url": "https://kryptokoulu.github.io/kryptokoulu/artikkelit/testnet-harjoittelu.html"
+}
+</script>
